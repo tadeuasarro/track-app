@@ -5,7 +5,6 @@ const initialState = {
 };
 
 const sessionReducer = (state = initialState, action) => {
-  console.log('this is working');
   switch (action.type) {
     case CREATE_SESSION:
       return { ...state, username: action.payload };
