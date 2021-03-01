@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { eraseSession } from '../../actions/index';
+import Footer from '../footer/Footer';
 
 const Home = () => {
   const dispatch = useDispatch(state => state);
@@ -12,6 +13,7 @@ const Home = () => {
   return (
     <div>
       <button onClick={() => handleClick()} type="button">Logout</button>
+      <Footer />
     </div>
   );
 };
