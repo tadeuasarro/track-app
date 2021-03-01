@@ -1,0 +1,34 @@
+.login-container {
+  height: calc(100% - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.login-input,
+.login-button {
+  height: 40px;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.login-input {
+  margin-bottom: 20px;
+  border: 1px solid grey;
+  padding: 10px;
+  font-size: large;
+}
+
+.login-button {
+  border: none;
+  background-color: #42b05d;
+  color: white;
+  font-size: large;
+}
