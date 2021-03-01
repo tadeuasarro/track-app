@@ -1,5 +1,7 @@
+import './navbar.css';
+
 const Navbar = () => (
-  <div>
+  <div className="navbar">
     <h1>Personal Expenses</h1>
   </div>
 );
