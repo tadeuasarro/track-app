@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Login from './components/login/Login';
+import Login from './containers/login/Login';
 
 const Routes = () => (
   <BrowserRouter>
