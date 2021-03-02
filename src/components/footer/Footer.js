@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 import './footer.css';
 
-console.log(window.location.pathname);
-
 const Footer = () => (
   <div className="footer-container">
     <Link className="footer-link" to="/measures">
