@@ -1,8 +1,10 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { eraseSession } from '../../actions/index';
 import Footer from '../footer/Footer';
+import './more.css';
 
 const More = () => {
+  const { session } = useSelector(state => state);
   const dispatch = useDispatch(state => state);
 
   const handleClick = () => {
@@ -10,9 +12,16 @@ const More = () => {
     dispatch(eraseSession());
   };
 
+  console.log(session);
+
   return (
     <div>
-      <button onClick={() => handleClick()} type="button">Logout</button>
+      <div className="more-container">
+        <div className="user-info">
+          <p>{session.username}</p>
+        </div>
+        <button className="logout-button" onClick={() => handleClick()} type="button">Logout</button>
+      </div>
       <Footer />
     </div>
   );

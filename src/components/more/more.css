@@ -1,0 +1,22 @@
+.more-container {
+  padding: 5%;
+}
+
+.user-info {
+  border-radius: 5px;
+  padding: 5%;
+  background-color: #f3f4f6;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.logout-button {
+  border: none;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  padding: 5%;
+  font-size: 20px;
+}
