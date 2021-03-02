@@ -12,8 +12,6 @@ const More = () => {
     dispatch(eraseSession());
   };
 
-  console.log(session);
-
   return (
     <div>
       <div className="more-container">
