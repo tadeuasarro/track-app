@@ -18,8 +18,15 @@ const Home = () => (
           <p>Balance</p>
         </div>
       </div>
-      <div className="home-catalogue">
-        this is some content
+      <div className="home-catalogue-container">
+        <div className="home-catalogue">
+          <div className="home-catalogue-item">Education</div>
+          <div className="home-catalogue-item">Grocery</div>
+          <div className="home-catalogue-item">Health</div>
+          <div className="home-catalogue-item">Leisure</div>
+          <div className="home-catalogue-item">Living</div>
+          <div className="home-catalogue-item">Transportation</div>
+        </div>
       </div>
     </div>
     <Footer />

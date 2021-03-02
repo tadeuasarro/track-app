@@ -24,7 +24,23 @@
   margin-bottom: 10%;
 }
 
-.home-catalogue {
+.home-catalogue-container {
   height: 70%;
   background-color: #f3f4f6;
+  display: flex;
+}
+
+.home-catalogue {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 5% 0 5%;
+  justify-content: space-between;
+}
+
+.home-catalogue-item {
+  background-color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  width: 47%;
+  margin-bottom: 20px;
 }
