@@ -23,28 +23,28 @@ const Home = () => (
           <div className="home-catalogue-item">
             <i className="fas fa-graduation-cap" />
             <div>
-              <p>0.3 k</p>
+              <p>0.1 k</p>
               <span>Education</span>
             </div>
           </div>
           <div className="home-catalogue-item">
             <i className="fas fa-shopping-cart" />
             <div>
-              <p>0.3 k</p>
+              <p>0.2 k</p>
               <span>Grocery</span>
             </div>
           </div>
           <div className="home-catalogue-item">
             <i className="fas fa-heartbeat" />
             <div>
-              <p>0.3 k</p>
+              <p>0.1 k</p>
               <p>Health</p>
             </div>
           </div>
           <div className="home-catalogue-item">
             <i className="fas fa-gamepad" />
             <div>
-              <p>0.3 k</p>
+              <p>0.1 k</p>
               <span>Leisure</span>
             </div>
           </div>
@@ -58,7 +58,7 @@ const Home = () => (
           <div className="home-catalogue-item">
             <i className="fas fa-bus" />
             <div>
-              <p>0.3 k</p>
+              <p>0.2 k</p>
               <span>Transport</span>
             </div>
           </div>
