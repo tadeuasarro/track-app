@@ -1,0 +1,30 @@
+.home-container {
+  height: calc(100vh - 120px);
+}
+
+.home-summary {
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  align-items: center;
+}
+
+.home-summary-container {
+  width: 30%;
+  text-align: center;
+}
+
+.home-summary-info {
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  width: 100%;
+  padding: 40% 0;
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+.home-catalogue {
+  height: 70%;
+  background-color: #f3f4f6;
+}
