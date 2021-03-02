@@ -1,0 +1,42 @@
+.measures-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 120px);
+}
+
+.measures-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.measures-form-input,
+.measures-form-button {
+  height: 60px;
+  width: 90%;
+  border-radius: 5px;
+  font-size: 25px;
+}
+
+.measures-form-input {
+  margin-bottom: 20px;
+  border: grey solid 1px;
+  padding: 10px;
+}
+
+.measures-form-button {
+  border: none;
+  background-color: #42b05d;
+  color: white;
+}
+
+.measures-container h3 {
+  font-size: larger;
+  padding: 20px;
+  text-align: center;
+  font-size: 25px;
+}
