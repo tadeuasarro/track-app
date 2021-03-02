@@ -8,6 +8,7 @@ const Measures = () => (
       <form className="measures-form">
         <input className="measures-form-input" placeholder="Category" />
         <input className="measures-form-input" placeholder="Description" />
+        <input className="measures-form-input" placeholder="Date yyyy/mm/dd" />
         <input className="measures-form-input" placeholder="Value" />
         <button className="measures-form-button" type="button">Submit</button>
       </form>

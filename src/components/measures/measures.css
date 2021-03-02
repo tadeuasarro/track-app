@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   height: calc(100vh - 120px);
 }
 
@@ -16,10 +16,10 @@
 
 .measures-form-input,
 .measures-form-button {
-  height: 60px;
+  height: 50px;
   width: 90%;
   border-radius: 5px;
-  font-size: 25px;
+  font-size: 23px;
 }
 
 .measures-form-input {
@@ -39,4 +39,5 @@
   padding: 20px;
   text-align: center;
   font-size: 25px;
+  color: #313944;
 }
