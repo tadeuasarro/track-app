@@ -20,12 +20,48 @@ const Home = () => (
       </div>
       <div className="home-catalogue-container">
         <div className="home-catalogue">
-          <div className="home-catalogue-item">Education</div>
-          <div className="home-catalogue-item">Grocery</div>
-          <div className="home-catalogue-item">Health</div>
-          <div className="home-catalogue-item">Leisure</div>
-          <div className="home-catalogue-item">Living</div>
-          <div className="home-catalogue-item">Transportation</div>
+          <div className="home-catalogue-item">
+            <i className="fas fa-graduation-cap" />
+            <div>
+              <p>0.3 k</p>
+              <span>Education</span>
+            </div>
+          </div>
+          <div className="home-catalogue-item">
+            <i className="fas fa-shopping-cart" />
+            <div>
+              <p>0.3 k</p>
+              <span>Grocery</span>
+            </div>
+          </div>
+          <div className="home-catalogue-item">
+            <i className="fas fa-heartbeat" />
+            <div>
+              <p>0.3 k</p>
+              <p>Health</p>
+            </div>
+          </div>
+          <div className="home-catalogue-item">
+            <i className="fas fa-gamepad" />
+            <div>
+              <p>0.3 k</p>
+              <span>Leisure</span>
+            </div>
+          </div>
+          <div className="home-catalogue-item">
+            <i className="fas fa-home" />
+            <div>
+              <p>0.3 k</p>
+              <span>Living</span>
+            </div>
+          </div>
+          <div className="home-catalogue-item">
+            <i className="fas fa-bus" />
+            <div>
+              <p>0.3 k</p>
+              <span>Transport</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

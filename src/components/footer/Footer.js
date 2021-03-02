@@ -7,7 +7,7 @@ const Footer = () => (
       <i className="fas fa-balance-scale-right" />
     </Link>
     <Link className="footer-link" to="/">
-      <i className="fas fa-home" />
+      <i className="fas fa-bars" />
     </Link>
     <Link className="footer-link" to="/progress">
       <i className="fas fa-tasks" />

@@ -43,4 +43,12 @@
   text-align: center;
   width: 47%;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #313944;
+}
+
+.home-catalogue-item i {
+  font-size: 25px;
 }
