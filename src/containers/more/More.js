@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { eraseSession } from '../../actions/index';
-import Footer from '../footer/Footer';
+import { eraseSession } from '../../actions/session';
+import Footer from '../../components/footer/Footer';
 import './more.css';
 
 const More = () => {

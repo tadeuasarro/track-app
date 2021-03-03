@@ -1,4 +1,4 @@
-import { CREATE_SESSION, ERASE_SESSION } from '../actions/index';
+import { CREATE_SESSION, ERASE_SESSION } from '../actions/session';
 
 const initialState = {
   username: false,

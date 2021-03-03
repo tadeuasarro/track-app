@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { createSession } from '../../actions/index';
+import { createSession } from '../../actions/session';
 import Navbar from '../../components/navbar/Navbar';
 import Routes from '../../Routes';
 import Login from '../login/Login';

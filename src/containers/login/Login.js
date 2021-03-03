@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { createSession } from '../../actions/index';
+import { createSession } from '../../actions/session';
 import './login.css';
 
 const Login = () => {
