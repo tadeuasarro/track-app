@@ -1,5 +1,5 @@
+/* eslint-disable */
 import { useSelector, useDispatch } from 'react-redux';
-import { createSession } from '../../actions/session';
 import Navbar from '../../components/navbar/Navbar';
 import Routes from '../../Routes';
 import Login from '../login/Login';
@@ -10,20 +10,9 @@ const App = () => {
   const dispatch = useDispatch();
   const username = document.cookie.split('=')[1];
 
-  if (username && session.username === false) {
-    dispatch(createSession(username));
-  }
-
-  if (session.username === false) {
-    return (
-      <div className="app-container">
-        <Navbar />
-        <Login />
-      </div>
-    );
-  }
-
   document.cookie = `username=${session.username}`;
+
+  return <Login />
 
   return (
     <div className="app-container">

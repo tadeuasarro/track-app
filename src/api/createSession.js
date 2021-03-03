@@ -1,7 +1,6 @@
-/* eslint-disable */
 import {
   createSessionPending, createSessionSuccess, createSessionError,
-} from '../actions/expenditure';
+} from '../actions/session';
 
 const url = 'http://localhost:5000/users';
 const config = {
@@ -11,17 +10,6 @@ const config = {
     'Content-Type': 'application/json',
   },
 };
-
-
-const createSession = async => {
-  const res = await fetch(url, config);
-}
-
-
-export default createSession;
-
-
-/*
 
 function createSession() {
   return dispatch => {
@@ -41,4 +29,4 @@ function createSession() {
   };
 }
 
-*/
+export default createSession;

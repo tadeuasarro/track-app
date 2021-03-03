@@ -1,5 +1,6 @@
+/* eslint-disable */
 import { useDispatch } from 'react-redux';
-import { createSession } from '../../actions/session';
+import startSession from '../../api/createSession';
 import './login.css';
 
 const Login = () => {
@@ -7,7 +8,7 @@ const Login = () => {
 
   const handleClick = () => {
     const username = document.getElementById('login-input').value;
-    dispatch(createSession(username));
+    dispatch(startSession(username));
   };
 
   return (

@@ -11,7 +11,7 @@ const initialState = {
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_SESSION_PENDING:
-      return { ...state, pending: true }
+      return { ...state, pending: true };
     case CREATE_SESSION_SUCCESS:
       return { ...state, pending: false, username: action.payload };
     case CREATE_SESSION_ERROR:
