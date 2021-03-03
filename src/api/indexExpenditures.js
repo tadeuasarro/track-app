@@ -3,7 +3,7 @@ import {
   indexExpendituresPending, indexExpendituresSuccess, indexExpendituresError,
 } from '../actions/expenditure';
 
-const url = 'http://localhost:5000/expenditures/index';
+const url = 'http://localhost:5000/expenditures';
 const config = {
   mode: 'cors',
   method: 'GET',
