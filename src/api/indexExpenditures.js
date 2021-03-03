@@ -1,27 +1,41 @@
-import { fetchPokemonPending, fetchPokemonError, fetchPokemonSuccess } from '../actions/session';
+/* eslint-disable */
+import {
+  indexExpendituresPending, indexExpendituresSuccess, indexExpendituresError,
+} from '../actions/expenditure';
 
-const url = 'http://localhost:3000/';
+const url = 'http://localhost:5000/expenditures/index';
 const config = {
   mode: 'cors',
   method: 'GET',
 };
 
-function indexPokemon() {
+const indexExpenditures = async () => {
+  const res = await fetch(url, config);
+  console.log(res);
+}
+
+export default indexExpenditures;
+
+/*
+
+function indexExpenditures() {
+  console.log('yey');
   return dispatch => {
-    dispatch(fetchPokemonPending());
+    dispatch(indexExpendituresPending());
     fetch(url, config)
       .then(res => res.json())
       .then(res => {
         if (res.error) {
           throw (res.error);
         }
-        dispatch(fetchPokemonSuccess(res.results));
-        return res.results;
+        console.log(res);
+        dispatch(indexExpendituresSuccess(res));
+        return res;
       })
       .catch(error => {
-        dispatch(fetchPokemonError(error));
+        dispatch(indexExpendituresError(error));
       });
   };
 }
 
-export default indexPokemon;
+*/
