@@ -3,23 +3,22 @@ import {
   indexExpendituresPending, indexExpendituresSuccess, indexExpendituresError,
 } from '../actions/expenditure';
 
-const url = 'http://localhost:5000/expenditures';
+const data = {
+  expense: {
+    name: 'Living',
+  }
+}
+
+const url = 'http://localhost:5000/expenses';
 const config = {
   mode: 'cors',
   method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
 };
 
-const indexExpenditures = async () => {
-  const res = await fetch(url, config);
-  console.log(res);
-}
-
-export default indexExpenditures;
-
-/*
-
 function indexExpenditures() {
-  console.log('yey');
   return dispatch => {
     dispatch(indexExpendituresPending());
     fetch(url, config)
@@ -28,7 +27,6 @@ function indexExpenditures() {
         if (res.error) {
           throw (res.error);
         }
-        console.log(res);
         dispatch(indexExpendituresSuccess(res));
         return res;
       })
@@ -38,4 +36,4 @@ function indexExpenditures() {
   };
 }
 
-*/
+export default indexExpenditures;
