@@ -7,9 +7,9 @@ export const createSessionPending = () => ({
   type: CREATE_SESSION_PENDING,
 });
 
-export const createSessionSuccess = username => ({
+export const createSessionSuccess = ({ username, id }) => ({
   type: CREATE_SESSION_SUCCESS,
-  payload: username,
+  payload: { username, id },
 });
 
 export const createSessionError = error => ({

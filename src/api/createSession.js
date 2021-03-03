@@ -20,8 +20,8 @@ function createSession(username) {
         if (res.error) {
           throw (res.error);
         }
-        console.log(res);
-        dispatch(createSessionSuccess(res));
+        const { username, id } = res;
+        dispatch(createSessionSuccess({ username, id }));
         return res;
       })
       .catch(error => {

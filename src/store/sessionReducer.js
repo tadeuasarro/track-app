@@ -5,19 +5,31 @@ import {
 const initialState = {
   pending: false,
   username: false,
+  id: false,
   error: false,
 };
 
 const sessionReducer = (state = initialState, action) => {
+  // console.log(action);
   switch (action.type) {
     case CREATE_SESSION_PENDING:
-      return { ...state, pending: true };
+      return { ...state, pending: true, error: false };
     case CREATE_SESSION_SUCCESS:
-      return { ...state, pending: false, username: action.payload };
+      return {
+        pending: false,
+        username: action.payload.username,
+        id: action.payload.id,
+        error: false,
+      };
     case CREATE_SESSION_ERROR:
       return { ...state, pending: false, error: action.payload };
     case ERASE_SESSION:
-      return { ...state, username: false };
+      return {
+        ...state,
+        username: false,
+        id: false,
+        error: false,
+      };
     default:
       return state;
   }
