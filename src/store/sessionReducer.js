@@ -10,7 +10,6 @@ const initialState = {
 };
 
 const sessionReducer = (state = initialState, action) => {
-  // console.log(action);
   switch (action.type) {
     case CREATE_SESSION_PENDING:
       return { ...state, pending: true, error: false };
