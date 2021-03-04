@@ -18,7 +18,7 @@ const More = () => {
     <div>
       <div className="more-container">
         <div className="user-info">
-          <p>{session.username}</p>
+          <p>{session.user.username}</p>
         </div>
         <button className="logout-button" onClick={() => handleClick()} type="button">Logout</button>
       </div>

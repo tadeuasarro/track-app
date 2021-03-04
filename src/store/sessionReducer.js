@@ -4,8 +4,7 @@ import {
 
 const initialState = {
   pending: false,
-  username: false,
-  id: false,
+  user: false,
   error: false,
 };
 
@@ -16,8 +15,7 @@ const sessionReducer = (state = initialState, action) => {
     case CREATE_SESSION_SUCCESS:
       return {
         pending: false,
-        username: action.payload.username,
-        id: action.payload.id,
+        user: action.payload,
         error: false,
       };
     case CREATE_SESSION_ERROR:
@@ -25,8 +23,7 @@ const sessionReducer = (state = initialState, action) => {
     case ERASE_SESSION:
       return {
         ...state,
-        username: false,
-        id: false,
+        user: false,
         error: false,
       };
     default:

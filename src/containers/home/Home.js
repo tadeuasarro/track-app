@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import indexExpenditures from '../../api/indexExpenditures';
-import Footer from '../footer/Footer';
-import Loading from '../loading/Loading';
+import Footer from '../../components/footer/Footer';
+import Loading from '../../components/loading/Loading';
 import filterExpenditures from '../../helpers/filterexpenditures/filterExpenditures';
 import './home.css';
 
@@ -10,10 +10,10 @@ const Home = () => {
   const { session, expenditure } = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const target = 2000;
+  const { target, id } = session.user;
 
   useEffect(() => {
-    dispatch(indexExpenditures(session.id));
+    dispatch(indexExpenditures(id));
   }, []);
 
   if (!expenditure.expenditures) return <Loading />;

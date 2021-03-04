@@ -1,5 +1,5 @@
+/* eslint-disable */
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import createSession from '../../api/createSession';
 import Navbar from '../../components/navbar/Navbar';
 import Loading from '../../components/loading/Loading';
@@ -12,9 +12,9 @@ const App = () => {
   const dispatch = useDispatch();
   const username = document.cookie.split('=')[1];
 
-  useEffect(() => {
+  if (username && session.user === false && !session.pending) {
     dispatch(createSession(username));
-  }, []);
+  }
 
   if (session.pending) {
     return (
@@ -25,7 +25,7 @@ const App = () => {
     );
   }
 
-  if (session.username === false) {
+  if (session.user === false) {
     return (
       <div className="app-container">
         <Navbar />
@@ -34,7 +34,7 @@ const App = () => {
     );
   }
 
-  document.cookie = `username=${session.username}`;
+  document.cookie = `username=${session.user.username}`;
 
   return (
     <div className="app-container">
