@@ -2,7 +2,7 @@ import {
   indexExpendituresPending, indexExpendituresSuccess, indexExpendituresError,
 } from '../actions/expenditure';
 
-const url = 'http://localhost:5000/expenditures?user_id=1';
+const url = 'http://localhost:5000/expenditures?user_id=';
 const config = {
   mode: 'cors',
   method: 'GET',
@@ -11,10 +11,10 @@ const config = {
   },
 };
 
-function indexExpenditures() {
+function indexExpenditures(userId) {
   return dispatch => {
     dispatch(indexExpendituresPending());
-    fetch(url, config)
+    fetch(`${url}${userId}`, config)
       .then(res => res.json())
       .then(res => {
         if (res.error) {
