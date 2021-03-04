@@ -1,6 +1,6 @@
 import {
-  CREATE_SESSION_SUCCESS, CREATE_SESSION_PENDING, CREATE_SESSION_ERROR, ERASE_SESSION,
-} from '../actions/session';
+  INDEX_EXPENDITURES_PENDING, INDEX_EXPENDITURES_SUCCESS, INDEX_EXPENDITURES_ERROR,
+} from '../actions/expenditure';
 
 const initialState = {
   pending: false,
@@ -10,23 +10,19 @@ const initialState = {
 
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_SESSION_PENDING:
+    case INDEX_EXPENDITURES_PENDING:
       return { ...state, pending: true, error: false };
-    case CREATE_SESSION_SUCCESS:
+    case INDEX_EXPENDITURES_SUCCESS:
       return {
         pending: false,
-        username: action.payload.username,
-        id: action.payload.id,
+        expenditures: action.payload,
         error: false,
       };
-    case CREATE_SESSION_ERROR:
-      return { ...state, pending: false, error: action.payload };
-    case ERASE_SESSION:
+    case INDEX_EXPENDITURES_ERROR:
       return {
         ...state,
-        username: false,
-        id: false,
-        error: false,
+        pending: false,
+        error: action.payload,
       };
     default:
       return state;

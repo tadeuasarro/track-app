@@ -20,7 +20,6 @@ function indexExpenditures() {
         if (res.error) {
           throw (res.error);
         }
-        console.log(res);
         dispatch(indexExpendituresSuccess(res));
         return res;
       })

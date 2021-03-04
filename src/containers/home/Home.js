@@ -1,12 +1,16 @@
-import { useDispatch } from 'react-redux';
+/* eslint-disable */
+import { useSelector, useDispatch } from 'react-redux';
 import Footer from '../../components/footer/Footer';
 import indexExpenditures from '../../api/indexExpenditures';
 import './home.css';
 
 const Home = () => {
+  const { expenditure } = useSelector(state => state);
   const dispatch = useDispatch();
 
-  dispatch(indexExpenditures);
+  if (!expenditure.pending && !expenditure.expenditures) {
+    dispatch(indexExpenditures());
+  }
 
   return (
     <div>
