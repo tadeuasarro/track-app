@@ -1,15 +1,8 @@
-/* eslint-disable */
 import {
   indexExpendituresPending, indexExpendituresSuccess, indexExpendituresError,
 } from '../actions/expenditure';
 
-const data = {
-  expense: {
-    name: 'Living',
-  }
-}
-
-const url = 'http://localhost:5000/expenses';
+const url = 'http://localhost:5000/expenditures?user_id=1';
 const config = {
   mode: 'cors',
   method: 'GET',
@@ -27,6 +20,7 @@ function indexExpenditures() {
         if (res.error) {
           throw (res.error);
         }
+        console.log(res);
         dispatch(indexExpendituresSuccess(res));
         return res;
       })
