@@ -1,5 +1,8 @@
 import {
-  INDEX_EXPENDITURES_PENDING, INDEX_EXPENDITURES_SUCCESS, INDEX_EXPENDITURES_ERROR,
+  INDEX_EXPENDITURES_PENDING,
+  INDEX_EXPENDITURES_SUCCESS,
+  INDEX_EXPENDITURES_ERROR,
+  ERASE_EXPENDITURE,
 } from '../actions/expenditure';
 
 const initialState = {
@@ -27,6 +30,11 @@ const sessionReducer = (state = initialState, action) => {
         ...state,
         pending: false,
         error: action.payload,
+      };
+    case ERASE_EXPENDITURE:
+      return {
+        ...state,
+        expenditures: false,
       };
     default:
       return state;

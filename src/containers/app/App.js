@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import createSession from '../../api/createSession';
 import Navbar from '../../components/navbar/Navbar';
 import Loading from '../../components/loading/Loading';
@@ -7,9 +8,13 @@ import Login from '../login/Login';
 import './app.css';
 
 const App = () => {
-  const session = useSelector(state => state.session);
+  const { session } = useSelector(state => state);
   const dispatch = useDispatch();
   const username = document.cookie.split('=')[1];
+
+  useEffect(() => {
+    dispatch(createSession(username));
+  }, []);
 
   if (session.pending) {
     return (
@@ -18,10 +23,6 @@ const App = () => {
         <Loading />
       </div>
     );
-  }
-
-  if (username && session.username === false && !session.pending) {
-    dispatch(createSession(username));
   }
 
   if (session.username === false) {
