@@ -1,16 +1,21 @@
 /* eslint-disable */
 import { useSelector, useDispatch } from 'react-redux';
 import Footer from '../../components/footer/Footer';
+import Loading from '../../components/loading/Loading';
 import indexExpenditures from '../../api/indexExpenditures';
 import './home.css';
 
 const Home = () => {
-  const { expenditure } = useSelector(state => state);
+  const { expenditure, session } = useSelector(state => state);
   const dispatch = useDispatch();
 
   if (!expenditure.pending && !expenditure.expenditures) {
-    dispatch(indexExpenditures());
+    dispatch(indexExpenditures(session.id));
   }
+
+  if (expenditure.pending) return <Loading />
+
+  console.log(expenditure.expenditures);
 
   return (
     <div>

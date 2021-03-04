@@ -11,7 +11,11 @@ const initialState = {
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case INDEX_EXPENDITURES_PENDING:
-      return { ...state, pending: true, error: false };
+      return {
+        ...state,
+        pending: true,
+        error: false,
+      };
     case INDEX_EXPENDITURES_SUCCESS:
       return {
         pending: false,
