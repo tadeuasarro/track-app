@@ -2,30 +2,58 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import indexExpenditures from '../../api/indexExpenditures';
 import Footer from '../footer/Footer';
+import Loading from '../loading/Loading';
+import filterExpenditures from '../../helpers/filterexpenditures/filterExpenditures';
 import './home.css';
 
 const Home = () => {
-  const { session } = useSelector(state => state);
+  const { session, expenditure } = useSelector(state => state);
   const dispatch = useDispatch();
+
+  const target = 2000;
 
   useEffect(() => {
     dispatch(indexExpenditures(session.id));
   }, []);
+
+  if (!expenditure.expenditures) return <Loading />;
+
+  const {
+    total,
+    education,
+    grocery,
+    health,
+    leisure,
+    living,
+    transport,
+  } = filterExpenditures(expenditure.expenditures);
 
   return (
     <div>
       <div className="home-container">
         <div className="home-summary">
           <div className="home-summary-container">
-            <div className="home-summary-info">1.0 K</div>
+            <div className="home-summary-info">
+              {(total / 1000).toFixed(1)}
+              &nbsp;
+              k
+            </div>
             <p>Expent</p>
           </div>
           <div className="home-summary-container">
-            <div className="home-summary-info">2.0 K</div>
+            <div className="home-summary-info">
+              {(target / 1000).toFixed(1)}
+              &nbsp;
+              k
+            </div>
             <p>Target</p>
           </div>
           <div className="home-summary-container">
-            <div className="home-summary-info">1.0 K</div>
+            <div className="home-summary-info">
+              {((target - total) / 1000).toFixed(1)}
+              &nbsp;
+              k
+            </div>
             <p>Balance</p>
           </div>
         </div>
@@ -34,42 +62,66 @@ const Home = () => {
             <div className="home-catalogue-item">
               <i className="fas fa-graduation-cap" />
               <div>
-                <p>0.1 k</p>
+                <p>
+                  {(education / 1000).toFixed(1)}
+                  &nbsp;
+                  k
+                </p>
                 <span>Education</span>
               </div>
             </div>
             <div className="home-catalogue-item">
               <i className="fas fa-shopping-cart" />
               <div>
-                <p>0.2 k</p>
+                <p>
+                  {(grocery / 1000).toFixed(1)}
+                  &nbsp;
+                  k
+                </p>
                 <span>Grocery</span>
               </div>
             </div>
             <div className="home-catalogue-item">
               <i className="fas fa-heartbeat" />
               <div>
-                <p>0.1 k</p>
+                <p>
+                  {(health / 1000).toFixed(1)}
+                  &nbsp;
+                  k
+                </p>
                 <p>Health</p>
               </div>
             </div>
             <div className="home-catalogue-item">
               <i className="fas fa-gamepad" />
               <div>
-                <p>0.1 k</p>
+                <p>
+                  {(leisure / 1000).toFixed(1)}
+                  &nbsp;
+                  k
+                </p>
                 <span>Leisure</span>
               </div>
             </div>
             <div className="home-catalogue-item">
               <i className="fas fa-home" />
               <div>
-                <p>0.3 k</p>
+                <p>
+                  {(living / 1000).toFixed(1)}
+                  &nbsp;
+                  k
+                </p>
                 <span>Living</span>
               </div>
             </div>
             <div className="home-catalogue-item">
               <i className="fas fa-bus" />
               <div>
-                <p>0.2 k</p>
+                <p>
+                  {(transport / 1000).toFixed(1)}
+                  &nbsp;
+                  k
+                </p>
                 <span>Transport</span>
               </div>
             </div>
