@@ -1,4 +1,4 @@
-function createExpenditure(data) {
+const createExpenditure = async data => {
   const url = 'http://localhost:5000/expenditures';
   const config = {
     mode: 'cors',
@@ -6,24 +6,21 @@ function createExpenditure(data) {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: data,
+    body: JSON.stringify(data),
   };
 
-  fetch(url, config)
-    .then(res => res.json())
-    .then(res => {
-      if (res.error) {
-        throw (res.error);
-      }
-      return ({
-        pending: false,
-        error: false,
-      });
-    })
-    .catch(error => ({
+  const res = await fetch(url, config);
+  const result = await res.json();
+  if (result === true) {
+    return ({
       pending: false,
-      error,
-    }));
-}
+      error: false,
+    });
+  }
+  return ({
+    pending: false,
+    error: result,
+  });
+};
 
 export default createExpenditure;
