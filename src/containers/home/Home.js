@@ -1,20 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import indexExpenditures from '../../api/indexExpenditures';
+import { useSelector } from 'react-redux';
 import Footer from '../../components/footer/Footer';
 import Loading from '../../components/loading/Loading';
-import filterExpenditures from '../../helpers/filterexpenditures/filterExpenditures';
 import './home.css';
 
 const Home = () => {
   const { session, expenditure } = useSelector(state => state);
-  const dispatch = useDispatch();
 
-  const { target, id } = session.user;
-
-  useEffect(() => {
-    dispatch(indexExpenditures(id));
-  }, []);
+  const { target } = session.user;
 
   if (!expenditure.expenditures) return <Loading />;
 
@@ -26,7 +18,7 @@ const Home = () => {
     leisure,
     living,
     transport,
-  } = filterExpenditures(expenditure.expenditures);
+  } = expenditure.expenditures.summary;
 
   return (
     <div>

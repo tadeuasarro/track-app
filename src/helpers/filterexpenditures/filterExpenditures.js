@@ -11,22 +11,22 @@ const filterExpenditures = expenditures => {
   expenditures.map(expenditure => {
     const { value, expense_id } = expenditure;
     switch (expense_id) {
-      case 4:
+      case 1:
         education += value;
         break;
-      case 5:
+      case 2:
         grocery += value;
         break;
-      case 6:
+      case 3:
         health += value;
         break;
-      case 7:
+      case 4:
         leisure += value;
         break;
-      case 8:
+      case 5:
         living += value;
         break;
-      case 9:
+      case 6:
         transport += value;
         break;
       default:

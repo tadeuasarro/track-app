@@ -1,6 +1,9 @@
 import {
-  indexExpendituresPending, indexExpendituresSuccess, indexExpendituresError,
+  indexExpendituresPending,
+  indexExpendituresSuccess,
+  indexExpendituresError,
 } from '../actions/expenditure';
+import filterExpenditures from '../helpers/filterexpenditures/filterExpenditures';
 
 const url = 'http://localhost:5000/expenditures?user_id=';
 const config = {
@@ -20,7 +23,9 @@ function indexExpenditures(userId) {
         if (res.error) {
           throw (res.error);
         }
-        dispatch(indexExpendituresSuccess(res));
+        const summary = filterExpenditures(res);
+        console.log(summary);
+        dispatch(indexExpendituresSuccess({ expenditures: res, summary }));
         return res;
       })
       .catch(error => {

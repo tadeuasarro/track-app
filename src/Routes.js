@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './containers/home/Home';
 import Measures from './components/measures/Measures';
-import Progress from './components/progress/Progress';
+import Progress from './containers/progress/Progress';
 import More from './containers/more/More';
 
 const Routes = () => (

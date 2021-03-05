@@ -1,14 +1,17 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable camelcase */
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Loading from '../loading/Loading';
 import Footer from '../footer/Footer';
 import './measures.css';
 import createExpenditure from '../../api/createExpenditure';
+import indexExpenditures from '../../api/indexExpenditures';
 
 const Measures = () => {
   const { session } = useSelector(state => state);
+  const dispatch = useDispatch();
+
   const [state, setState] = useState({
     pending: false,
     error: false,
@@ -33,9 +36,9 @@ const Measures = () => {
       user_id: session.user.id,
     });
 
-    console.log(res);
-
     setState(res);
+
+    dispatch(indexExpenditures(session.user.id));
   };
 
   if (state.pending) return <Loading />;
@@ -47,12 +50,12 @@ const Measures = () => {
         <form className="measures-form">
           <select id="form-category" className="measures-form-input">
             <option value="">Category</option>
-            <option value="4">Education</option>
-            <option value="5">Grocery</option>
-            <option value="6">Health</option>
-            <option value="7">Leisure</option>
-            <option value="8">Living</option>
-            <option value="9">Transport</option>
+            <option value="1">Education</option>
+            <option value="2">Grocery</option>
+            <option value="3">Health</option>
+            <option value="4">Leisure</option>
+            <option value="5">Living</option>
+            <option value="6">Transport</option>
           </select>
           <input id="form-description" className="measures-form-input" placeholder="Description" />
           <input id="form-date" className="measures-form-input" placeholder="Date yyyy/mm/dd" />

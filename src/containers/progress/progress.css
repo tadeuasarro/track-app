@@ -2,17 +2,6 @@
   padding: 5%;
 }
 
-.reset-button {
-  border: none;
-  border-radius: 5px;
-  padding: 20px;
-  width: 100%;
-  font-size: 25px;
-  background-color: #42b05d;
-  color: #fff;
-  margin-bottom: 20px;
-}
-
 .progress-summary {
   border-radius: 5px;
   background-color: #f3f4f6;
@@ -20,17 +9,10 @@
   margin-bottom: 20px;
 }
 
-.progress-saved,
 .progress-expent {
   text-align: center;
   justify-content: space-evenly;
   margin: 20px 0;
-}
-
-.progress-saved {
-  border-bottom: #fff solid 3px;
-  padding-bottom: 20px;
-  color: #42b05d;
 }
 
 .progress-expent{
@@ -42,14 +24,14 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  padding: 20px 60px;
+  padding: 10px;
   align-items: center;
   justify-content: center;
 }
 
 .history-container i {
-  font-size: 30px;
-  margin-bottom: 20px;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .history-container p {

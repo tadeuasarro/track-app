@@ -1,6 +1,6 @@
-/* eslint-disable */
 import { useSelector, useDispatch } from 'react-redux';
 import createSession from '../../api/createSession';
+import indexExpenditures from '../../api/indexExpenditures';
 import Navbar from '../../components/navbar/Navbar';
 import Loading from '../../components/loading/Loading';
 import Routes from '../../Routes';
@@ -8,12 +8,16 @@ import Login from '../login/Login';
 import './app.css';
 
 const App = () => {
-  const { session } = useSelector(state => state);
+  const { session, expenditure } = useSelector(state => state);
   const dispatch = useDispatch();
   const username = document.cookie.split('=')[1];
 
   if (username && session.user === false && !session.pending) {
     dispatch(createSession(username));
+  }
+
+  if (session.user && !expenditure.pending && !expenditure.expenditures) {
+    dispatch(indexExpenditures(session.user.id));
   }
 
   if (session.pending) {
