@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { useSelector } from 'react-redux';
+import Expenditure from '../../components/expenditure/Expenditure';
 import Footer from '../../components/footer/Footer';
 import './progress.css';
 
@@ -23,8 +24,8 @@ const Progress = () => {
         </div>
         <div className="history-container">
           <i className="fas fa-history" />
-          <p>History</p>
-          <div>a</div>
+          <h3>History</h3>
+          { expenditures.map(expenditure => <Expenditure key={expenditure.id} expenditure={expenditure} />) }
         </div>
       </div>
       <Footer />

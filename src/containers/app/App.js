@@ -20,7 +20,7 @@ const App = () => {
     dispatch(indexExpenditures(session.user.id));
   }
 
-  if (session.pending) {
+  if (session.pending || (session.user && !expenditure.expenditures)) {
     return (
       <div className="app-container">
         <Navbar />

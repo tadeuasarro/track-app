@@ -6,7 +6,7 @@
   border-radius: 5px;
   background-color: #f3f4f6;
   padding: 5px 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .progress-expent {
@@ -31,11 +31,7 @@
 
 .history-container i {
   font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.history-container p {
-  font-size: 20px;
+  margin-bottom: 15px;
 }
 
 .total-amount {

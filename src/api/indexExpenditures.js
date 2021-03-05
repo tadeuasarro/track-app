@@ -24,7 +24,6 @@ function indexExpenditures(userId) {
           throw (res.error);
         }
         const summary = filterExpenditures(res);
-        console.log(summary);
         dispatch(indexExpendituresSuccess({ expenditures: res, summary }));
         return res;
       })

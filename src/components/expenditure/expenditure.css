@@ -1,0 +1,11 @@
+.expenditure-container {
+  background-color: #fff;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 17px;
+  width: 100%;
+}
+
+.expenditure {
+  margin-bottom: 5px;
+}
