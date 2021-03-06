@@ -1,5 +1,5 @@
 .login-container {
-  height: calc(100% - 70px);
+  height: calc(100vh - 120px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,8 @@
 }
 
 .login-input,
-.login-button {
+.login-button,
+.register-button {
   height: 60px;
   width: 90%;
   border-radius: 5px;
@@ -26,8 +27,17 @@
   padding: 10px;
 }
 
-.login-button {
+.login-button,
+.register-button {
   border: none;
-  background-color: #42b05d;
   color: white;
+}
+
+.login-button {
+  background-color: #42b05d;
+  margin-bottom: 20px;
+}
+
+.register-button {
+  background-color: blue;
 }
