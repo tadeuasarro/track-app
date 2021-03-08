@@ -12,20 +12,24 @@ const CreateTarget = ({ target }) => {
 
   if (target) {
     return (
-      <button type="button" onClick={handleDeleteClick()} className="delete-target">Delete target</button>
+      <button type="button" onClick={() => handleDeleteClick()} className="delete-target">Delete target</button>
     );
   }
 
   return (
     <div>
       <input className="target-input" placeholder="Input target here" />
-      <button onClick={handleCreateClick()} type="button" className="create-target">Set a new target</button>
+      <button onClick={() => handleCreateClick()} type="button" className="create-target">Set a new target</button>
     </div>
   );
 };
 
 CreateTarget.propTypes = {
-  target: PropTypes.number.isRequired,
+  target: PropTypes.number,
+};
+
+CreateTarget.defaultProps = {
+  target: null,
 };
 
 export default CreateTarget;
