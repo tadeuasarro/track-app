@@ -2,8 +2,9 @@
 /* eslint-disable camelcase */
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Loading from '../loading/Loading';
-import Footer from '../footer/Footer';
+import Loading from '../../components/loading/Loading';
+import Footer from '../../components/footer/Footer';
+import Error from '../../components/error/Error';
 import './measures.css';
 import createExpenditure from '../../api/createExpenditure';
 import indexExpenditures from '../../api/indexExpenditures';
@@ -41,6 +42,8 @@ const Measures = () => {
     dispatch(indexExpenditures(session.user.id));
   };
 
+  const errorObj = (!state.error ? {} : state.error );
+
   if (!session.user.target) {
     return (
       <div>
@@ -73,9 +76,13 @@ const Measures = () => {
             <option value="5">Living</option>
             <option value="6">Transport</option>
           </select>
+          <Error error={errorObj.expense} />
           <input id="form-description" className="measures-form-input" placeholder="Description" />
+          <Error error={errorObj.description} />
           <input id="form-date" className="measures-form-input" placeholder="Date yyyy/mm/dd" />
+          <Error error={errorObj.date} />
           <input id="form-value" className="measures-form-input" placeholder="Value" />
+          <Error error={errorObj.value} />
           <button onClick={() => handleClick()} className="measures-form-button" type="button">Submit</button>
         </form>
       </div>

@@ -1,7 +1,9 @@
+/* eslint-disable */
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import createSession from '../../api/createSession';
 import updateUser from '../../api/updateUser';
+import Error from '../../components/error/Error';
 import './createtarget.css';
 
 const CreateTarget = () => {
@@ -25,11 +27,14 @@ const CreateTarget = () => {
     });
 
     const res = await updateUser({ target: newTarget }, id);
+    console.log(res);
 
     setState(res);
 
     dispatch(createSession(username));
   };
+
+  const errorObj = (!state.error ? {} : state.error );
 
   if (target) {
     return (

@@ -16,6 +16,7 @@
 
 .measures-form-input,
 .measures-form-button {
+  margin-top: 15px;
   height: 50px;
   width: 90%;
   border-radius: 5px;
@@ -23,7 +24,6 @@
 }
 
 .measures-form-input {
-  margin-bottom: 20px;
   border: grey solid 1px;
   padding: 10px;
 }

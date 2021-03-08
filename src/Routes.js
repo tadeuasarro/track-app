@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './containers/home/Home';
-import Measures from './components/measures/Measures';
+import Measures from './containers/measures/Measures';
 import Progress from './containers/progress/Progress';
 import More from './containers/more/More';
 
