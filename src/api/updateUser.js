@@ -1,8 +1,8 @@
-const createExpenditure = async data => {
-  const url = 'http://localhost:5000/users';
+const createExpenditure = async (data, id) => {
+  const url = `http://localhost:5000/users/${id}`;
   const config = {
     mode: 'cors',
-    method: 'POST',
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
