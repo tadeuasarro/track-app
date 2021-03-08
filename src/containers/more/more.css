@@ -4,7 +4,7 @@
 
 .user-info {
   border-radius: 5px;
-  padding: 5%;
+  padding: 15px;
   background-color: #f3f4f6;
   margin-bottom: 20px;
   font-size: 20px;
@@ -17,6 +17,6 @@
   border-radius: 5px;
   text-align: center;
   width: 100%;
-  padding: 5%;
+  padding: 15px;
   font-size: 20px;
 }
