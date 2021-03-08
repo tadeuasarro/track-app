@@ -41,6 +41,22 @@ const Measures = () => {
     dispatch(indexExpenditures(session.user.id));
   };
 
+  if (!session.user.target) {
+    return (
+      <div>
+        <div className="require-target">
+          <h3>Create expense</h3>
+          <p>Set up a target before submitting expenses entries.</p>
+          <div className="target-instruction">
+            <span>Click here! </span>
+            <i className="fas fa-arrow-down" />
+          </div>
+        </div>
+        <Footer />
+      </div>
+    )
+  }
+
   if (state.pending) return <Loading />;
 
   return (

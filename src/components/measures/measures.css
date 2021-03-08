@@ -41,3 +41,19 @@
   font-size: 25px;
   color: #313944;
 }
+
+.require-target {
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.require-target p {
+  margin-top: 20px;
+}
+
+.target-instruction {
+  position: absolute;
+  right: 27px;
+  bottom: 60px;
+}
