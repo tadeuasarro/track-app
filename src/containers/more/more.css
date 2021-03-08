@@ -1,5 +1,8 @@
 .more-container {
-  padding: 5%;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .user-info {
@@ -8,9 +11,11 @@
   background-color: #f3f4f6;
   margin-bottom: 20px;
   font-size: 20px;
+  width: 90%;
 }
 
 .logout-button {
+  margin-top: 15px;
   border: none;
   background-color: red;
   color: white;
@@ -19,4 +24,5 @@
   width: 100%;
   padding: 15px;
   font-size: 20px;
+  width: 90%;
 }

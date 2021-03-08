@@ -3,10 +3,9 @@ import './error.css';
 
 const Error = ({ error }) => {
   if (error.length === 0) return '';
-  console.log(error);
   return (
     <div className="error-container">
-      a
+      {error.map(msg => <p key={msg}>{msg.charAt(0).toUpperCase() + msg.slice(1)}</p>)}
     </div>
   );
 }

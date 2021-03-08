@@ -4,8 +4,16 @@
   margin-top: 10px;
   font-size: 17px;
   width: 100%;
+  position: relative;
 }
 
 .expenditure {
   margin-bottom: 5px;
+}
+
+.expenditure-container i {
+  color: red;
+  position: absolute;
+  right: 15px;
+  top: 15px;
 }
