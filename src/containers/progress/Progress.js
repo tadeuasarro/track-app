@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { useSelector } from 'react-redux';
-import Expenditure from '../../components/expenditure/Expenditure';
+import Expenditure from '../expenditure/Expenditure';
 import Footer from '../../components/footer/Footer';
 import './progress.css';
 

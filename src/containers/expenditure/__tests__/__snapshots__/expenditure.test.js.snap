@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display renders correctly 1`] = `
+<div
+  className="expenditure-container"
+>
+  <p
+    className="expenditure"
+  >
+    <span>
+      Value:
+    </span>
+     
+    200
+  </p>
+  <p
+    className="expenditure"
+  >
+    <span>
+      Date:
+    </span>
+     
+    2020/03/01
+  </p>
+  <p
+    className="expenditure"
+  >
+    <span>
+      Description:
+    </span>
+     
+    This is some description
+  </p>
+  <p
+    className="expenditure"
+  >
+    <span>
+      Category:
+    </span>
+     
+    Education
+  </p>
+  <i
+    className="fas fa-trash-alt"
+    onClick={[Function]}
+  />
+</div>
+`;

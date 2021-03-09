@@ -35,22 +35,22 @@ const Expenditure = ({ expenditure }) => {
   return (
     <div className="expenditure-container">
       <p className="expenditure">
-        Value:
+        <span>Value:</span>
         &nbsp;
         {value}
       </p>
       <p className="expenditure">
-        Date:
+        <span>Date:</span>
         &nbsp;
         {date}
       </p>
       <p className="expenditure">
-        Description:
+        <span>Description:</span>
         &nbsp;
         {description}
       </p>
       <p className="expenditure">
-        Category:
+        <span>Category:</span>
         &nbsp;
         {expenses[expense_id]}
       </p>
