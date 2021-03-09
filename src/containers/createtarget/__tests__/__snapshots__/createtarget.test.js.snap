@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display renders correctly 1`] = `
+<div
+  className="create-target-container"
+>
+  <input
+    className="target-input"
+    id="target-input"
+    placeholder="Input target here"
+  />
+  
+  <button
+    className="create-target"
+    onClick={[Function]}
+    type="button"
+  >
+    Set a new target
+  </button>
+</div>
+`;

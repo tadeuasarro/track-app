@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display renders correctly 1`] = `
+<div
+  className="app-container"
+>
+  <div
+    className="navbar"
+  >
+    <h1>
+      Personal Expenses
+    </h1>
+  </div>
+  <div
+    className="login-container"
+  >
+    <form
+      className="login-form"
+    >
+      <input
+        className="login-input"
+        id="login-input"
+        type="text"
+      />
+      <button
+        className="login-button"
+        onClick={[Function]}
+        type="button"
+      >
+        Login
+      </button>
+      <button
+        className="register-button"
+        onClick={[Function]}
+        type="button"
+      >
+        Register
+      </button>
+    </form>
+  </div>
+</div>
+`;

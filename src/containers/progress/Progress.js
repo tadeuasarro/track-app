@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { useSelector } from 'react-redux';
 import Expenditure from '../expenditure/Expenditure';
+import Loading from '../../components/loading/Loading';
 import Footer from '../../components/footer/Footer';
 import './progress.css';
 
@@ -8,6 +9,8 @@ const Progress = () => {
   const { expenditure } = useSelector(state => state);
 
   const { expenditures, summary } = expenditure.expenditures;
+
+  if (!expenditure.expenditures) return <Loading />
 
   return (
     <div>

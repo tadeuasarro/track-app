@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display renders correctly 1`] = `
+<div>
+  <div
+    className="more-container"
+  >
+    <div
+      className="user-info"
+    >
+      <p />
+    </div>
+    <div
+      className="create-target-container"
+    >
+      <input
+        className="target-input"
+        id="target-input"
+        placeholder="Input target here"
+      />
+      
+      <button
+        className="create-target"
+        onClick={[Function]}
+        type="button"
+      >
+        Set a new target
+      </button>
+    </div>
+    <button
+      className="logout-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Logout
+    </button>
+  </div>
+  <div
+    className="footer-container"
+  >
+    <a
+      className="footer-link"
+      href="/measures"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-balance-scale-right"
+      />
+    </a>
+    <a
+      className="footer-link"
+      href="/"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-bars"
+      />
+    </a>
+    <a
+      className="footer-link"
+      href="/progress"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-tasks"
+      />
+    </a>
+    <a
+      className="footer-link"
+      href="/more"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-info"
+      />
+    </a>
+  </div>
+</div>
+`;
