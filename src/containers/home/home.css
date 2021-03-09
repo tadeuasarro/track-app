@@ -24,10 +24,39 @@
   margin-bottom: 10%;
 }
 
+@media (min-width: 600px) {
+  .home-summary-container {
+    width: 25%;
+  }
+}
+
+@media (min-width: 750px) {
+  .home-summary-container {
+    width: 20%;
+  }
+
+  .home-summary {
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: 1000px) {
+  .home-summary-container {
+    width: 15%;
+  }
+}
+
+@media (min-width: 1300px) {
+  .home-summary-container {
+    width: 10%;
+  }
+}
+
 .home-catalogue-container {
   height: 70%;
   background-color: #f3f4f6;
   display: flex;
+  width: 100%;
 }
 
 .home-catalogue {
@@ -35,6 +64,7 @@
   flex-wrap: wrap;
   padding: 20px 5% 0 5%;
   justify-content: space-between;
+  width: 100%;
 }
 
 .home-catalogue-item {
