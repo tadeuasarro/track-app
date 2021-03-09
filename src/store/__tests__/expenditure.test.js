@@ -51,10 +51,9 @@ describe('Detail Reducer', () => {
         id: 1,
         user_id: 1,
         expense_id: 1,
-      }]
+      }],
     };
     const state = expenditureReducer(mockState, mockAction);
-    console.log(state);
     expect(state).toStrictEqual({
       error: false,
       pending: false,
@@ -65,7 +64,7 @@ describe('Detail Reducer', () => {
         id: 1,
         user_id: 1,
         expense_id: 1,
-      }]
+      }],
     });
   });
 });

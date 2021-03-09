@@ -42,7 +42,7 @@ const Measures = () => {
     dispatch(indexExpenditures(session.user.id));
   };
 
-  const errorObj = (!state.error ? {} : state.error );
+  const errorObj = (!state.error ? {} : state.error);
 
   if (!session.user.target) {
     return (
@@ -57,10 +57,17 @@ const Measures = () => {
         </div>
         <Footer />
       </div>
-    )
+    );
   }
 
-  if (state.pending) return <Loading />;
+  if (state.pending) {
+    return (
+      <div>
+        <Loading />
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div>

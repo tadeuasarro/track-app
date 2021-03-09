@@ -8,14 +8,14 @@ const Error = ({ error }) => {
       {error.map(msg => <p key={msg}>{msg.charAt(0).toUpperCase() + msg.slice(1)}</p>)}
     </div>
   );
-}
+};
 
 Error.propTypes = {
-  error: PropTypes.array,
-}
+  error: PropTypes.instanceOf(Array),
+};
 
 Error.defaultProps = {
   error: [],
-}
+};
 
 export default Error;

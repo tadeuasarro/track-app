@@ -6,7 +6,7 @@ describe('Rendering component', () => {
   it('creates an App component', () => {
     act(() => {
       render(
-        <Error error={['this is some error']} />
+        <Error error={['this is some error']} />,
       );
     });
     // eslint-disable-next-line
@@ -17,7 +17,7 @@ describe('Rendering component', () => {
 describe('Display', () => {
   it('renders correctly', () => {
     const comp = renderer.create(
-      <Error error={['this is some error']} />
+      <Error error={['this is some error']} />,
     ).toJSON();
     expect(comp).toMatchSnapshot();
   });

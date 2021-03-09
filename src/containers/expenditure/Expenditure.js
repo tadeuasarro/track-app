@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import deleteExpenditures from '../../api/deleteExpenditures';
 import indexExpenditures from '../../api/indexExpenditures';
-import { useSelector, useDispatch } from 'react-redux';
 import './expenditure.css';
 
 const expenses = [
@@ -30,7 +30,7 @@ const Expenditure = ({ expenditure }) => {
   const handleClick = async id => {
     await deleteExpenditures(id);
     dispatch(indexExpenditures(user.id));
-  }
+  };
 
   return (
     <div className="expenditure-container">
@@ -54,7 +54,9 @@ const Expenditure = ({ expenditure }) => {
         &nbsp;
         {expenses[expense_id]}
       </p>
-      <i className="fas fa-trash-alt" onClick={() => handleClick(id)} />
+      <button type="button" onClick={() => handleClick(id)}>
+        <i className="fas fa-trash-alt" />
+      </button>
     </div>
   );
 };

@@ -5,7 +5,8 @@ import {
 } from '../actions/expenditure';
 import filterExpenditures from '../helpers/filterExpenditures';
 
-const url = 'https://enigmatic-everglades-24941.herokuapp.com/expenditures?user_id=';
+const url = 'http://localhost:5000/expenditures?user_id=';
+// const url = 'https://enigmatic-everglades-24941.herokuapp.com/expenditures?user_id=';
 const config = {
   mode: 'cors',
   method: 'GET',

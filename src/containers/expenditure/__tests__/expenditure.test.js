@@ -19,7 +19,7 @@ describe('Rendering component', () => {
       render(
         <Provider store={store}>
           <Expenditure expenditure={expenditure} />
-        </Provider>
+        </Provider>,
       );
     });
     // eslint-disable-next-line
@@ -32,7 +32,7 @@ describe('Display', () => {
     const comp = renderer.create(
       <Provider store={store}>
         <Expenditure expenditure={expenditure} />
-      </Provider>
+      </Provider>,
     ).toJSON();
     expect(comp).toMatchSnapshot();
   });

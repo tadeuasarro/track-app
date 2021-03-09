@@ -7,7 +7,7 @@ describe('Display', () => {
     const comp = renderer.create(
       <BrowserRouter>
         <Footer />
-      </BrowserRouter>
+      </BrowserRouter>,
     ).toJSON();
     expect(comp).toMatchSnapshot();
   });

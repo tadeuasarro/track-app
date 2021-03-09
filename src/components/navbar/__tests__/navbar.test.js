@@ -6,7 +6,7 @@ describe('Rendering component', () => {
   it('creates an App component', () => {
     act(() => {
       render(
-        <Navbar />
+        <Navbar />,
       );
     });
     // eslint-disable-next-line
@@ -17,7 +17,7 @@ describe('Rendering component', () => {
 describe('Display', () => {
   it('renders correctly', () => {
     const comp = renderer.create(
-      <Navbar />
+      <Navbar />,
     ).toJSON();
     expect(comp).toMatchSnapshot();
   });

@@ -35,8 +35,15 @@ const CreateTarget = () => {
       dispatch(createSession(username));
       dispatch(indexExpenditures(id));
     }
-
   };
+
+  if (state.pending) {
+    return (
+      <div className="loading-container">
+        <h1>Please wait...</h1>
+      </div>
+    )
+  }
 
   const errorObj = (!state.error ? {} : state.error );
 

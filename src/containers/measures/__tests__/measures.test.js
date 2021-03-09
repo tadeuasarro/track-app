@@ -13,7 +13,7 @@ describe('Rendering component', () => {
           <Provider store={store}>
             <Measures />
           </Provider>
-        </BrowserRouter>
+        </BrowserRouter>,
       );
     });
     // eslint-disable-next-line
@@ -28,7 +28,7 @@ describe('Display', () => {
         <Provider store={store}>
           <Measures />
         </Provider>
-      </BrowserRouter>
+      </BrowserRouter>,
     ).toJSON();
     expect(comp).toMatchSnapshot();
   });

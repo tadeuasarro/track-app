@@ -31,7 +31,7 @@ describe('Detail Reducer', () => {
         username: 'Tadeu',
         target: 0,
         id: 1,
-      }
+      },
     };
     const mockAction = { type: UPDATE_TARGET, payload: 3000 };
     const state = sessionReducer(mockState, mockAction);
@@ -42,7 +42,7 @@ describe('Detail Reducer', () => {
         username: 'Tadeu',
         target: 3000,
         id: 1,
-      }
+      },
     });
   });
 
@@ -72,10 +72,9 @@ describe('Detail Reducer', () => {
         username: 'Tadeu',
         target: 3000,
         id: 1,
-      }
+      },
     };
     const state = sessionReducer(mockState, mockAction);
-    console.log(state);
     expect(state).toStrictEqual({
       error: false,
       pending: false,
@@ -83,7 +82,7 @@ describe('Detail Reducer', () => {
         username: 'Tadeu',
         target: 3000,
         id: 1,
-      }
+      },
     });
   });
 });
