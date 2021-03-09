@@ -1,0 +1,27 @@
+import filterExpenditures from '../filterExpenditures';
+
+describe('Filter expenditures helper', () => {
+  it('expects to returns everything as zero', () => {
+    const result = filterExpenditures([])
+    expect(result).toStrictEqual({
+      total: 0,
+      education: 0,
+      grocery: 0,
+      health: 0,
+      leisure: 0,
+      living: 0,
+      transport: 0,
+    })
+  });
+
+  it('expects to return all of the values as 10 and total as 60', () => {
+    const result = filterExpenditures([
+      { value: 10, expense_id: 1 },
+      { value: 10, expense_id: 2 },
+      { value: 10, expense_id: 3 },
+      { value: 10, expense_id: 4 },
+      { value: 10, expense_id: 5 },
+      { value: 10, expense_id: 6 },
+    ])
+  });
+});
