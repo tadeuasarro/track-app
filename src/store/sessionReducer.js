@@ -33,7 +33,11 @@ const sessionReducer = (state = initialState, action) => {
     case UPDATE_TARGET:
       return {
         ...state,
-        target: action.payload,
+        user: {
+          username: state.user.username,
+          id: state.user.id,
+          target: action.payload,
+        },
       };
     default:
       return state;

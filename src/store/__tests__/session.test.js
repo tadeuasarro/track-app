@@ -23,6 +23,29 @@ describe('Detail Reducer', () => {
     expect(state).toStrictEqual({ error: false, pending: false, user: false });
   });
 
+  it('updates the user target', () => {
+    const mockState = {
+      error: false,
+      pending: false,
+      user: {
+        username: 'Tadeu',
+        target: 0,
+        id: 1,
+      }
+    };
+    const mockAction = { type: UPDATE_TARGET, payload: 3000 };
+    const state = sessionReducer(mockState, mockAction);
+    expect(state).toStrictEqual({
+      error: false,
+      pending: false,
+      user: {
+        username: 'Tadeu',
+        target: 3000,
+        id: 1,
+      }
+    });
+  });
+
   it('sets the state as pending true', () => {
     const mockState = { error: false, pending: false, user: false };
     const mockAction = { type: CREATE_SESSION_PENDING };
