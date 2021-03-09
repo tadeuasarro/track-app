@@ -1,8 +1,19 @@
 .login-container {
   height: calc(100vh - 120px);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.login-container p {
+  margin-bottom: 20px;
+}
+
+.instructions {
+  margin-bottom: 30px;
+  text-align: center;
+  width: 90%;
 }
 
 .login-form {

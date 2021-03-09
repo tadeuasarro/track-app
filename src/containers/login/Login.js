@@ -37,8 +37,12 @@ const Login = () => {
 
   return (
     <div className="login-container">
+      <div className="instructions">
+        <p>Welcome to Personal Expenses, your personal expenses managing application.</p>
+        <p>Login with your account, or fill the form and click on register!</p>
+      </div>
       <form className="login-form">
-        <input id="login-input" className="login-input" type="text" />
+        <input id="login-input" placeholder="Min: 4, max: 20 chars" className="login-input" type="text" />
         <button onClick={() => handleLoginClick()} className="login-button" type="button">Login</button>
         <button onClick={() => handleRegisterClick()} className="register-button" type="button">Register</button>
       </form>
