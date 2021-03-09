@@ -11,7 +11,7 @@ const initialState = {
   error: false,
 };
 
-const sessionReducer = (state = initialState, action) => {
+const expenditureReducer = (state = initialState, action) => {
   switch (action.type) {
     case INDEX_EXPENDITURES_PENDING:
       return {
@@ -41,4 +41,4 @@ const sessionReducer = (state = initialState, action) => {
   }
 };
 
-export default sessionReducer;
+export default expenditureReducer;
