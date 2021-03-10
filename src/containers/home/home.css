@@ -1,5 +1,6 @@
 .home-container {
   min-height: calc(100vh - 120px);
+  padding-bottom: 70px;
 }
 
 .home-summary {
