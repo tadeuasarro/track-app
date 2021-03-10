@@ -1,5 +1,6 @@
 .home-container {
-  padding-bottom: 70px;
+  height: calc(100vh - 120px);
+  margin-bottom: 50px;
 }
 
 .home-summary {

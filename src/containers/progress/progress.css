@@ -1,5 +1,7 @@
 .progress-container {
-  padding: 5%;
+  height: calc(100vh - 120px);
+  margin-bottom: 50px;
+  padding: 5% 5% 0 5%;
 }
 
 .progress-summary {
