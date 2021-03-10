@@ -66,6 +66,17 @@ Open `http://localhost:3000/` in your favorite browser.
   npm test
 ```
 
+
+### Using
+
+- The first time you access the app you will have to create a username.
+
+- The next time you can login using that username.
+
+- Before adding expenses the application will require you to create a target.
+
+- After that all you have to do is add the expenses and you can check them out in the home and progress tabs.
+
 ### Authors
 
 👤 This is me:
