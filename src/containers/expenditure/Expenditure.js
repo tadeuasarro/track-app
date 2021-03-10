@@ -33,7 +33,6 @@ const Expenditure = ({ expenditure }) => {
     id,
   } = expenditure;
   const handleClick = async id => {
-
     setState({
       ...state,
       pending: true,
@@ -43,10 +42,10 @@ const Expenditure = ({ expenditure }) => {
     setState(res);
     if (!res.error) {
       dispatch(indexExpenditures(user.id));
-    };
+    }
   };
 
-  if (state.pending) return <Loading />
+  if (state.pending) return <Loading />;
 
   return (
     <div className="expenditure-container">
