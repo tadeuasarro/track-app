@@ -1,6 +1,8 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Loading from '../../components/loading/Loading';
 import deleteExpenditures from '../../api/deleteExpenditures';
 import indexExpenditures from '../../api/indexExpenditures';
 import './expenditure.css';
@@ -16,6 +18,10 @@ const expenses = [
 ];
 
 const Expenditure = ({ expenditure }) => {
+  const [state, setState] = useState({
+    pending: false,
+    error: false,
+  })
   const { user } = useSelector(state => state).session;
   const dispatch = useDispatch();
 
@@ -28,9 +34,23 @@ const Expenditure = ({ expenditure }) => {
   } = expenditure;
 
   const handleClick = async id => {
-    await deleteExpenditures(id);
-    dispatch(indexExpenditures(user.id));
+
+    setState({
+      ...state,
+      pending: true,
+    })
+
+    const res = await deleteExpenditures(id);
+
+    setState(res);
+
+    if (!res.error) {
+      dispatch(indexExpenditures(user.id));
+    }
+
   };
+
+  if (state.pending) return <Loading />
 
   return (
     <div className="expenditure-container">
