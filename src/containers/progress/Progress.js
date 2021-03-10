@@ -9,7 +9,7 @@ const Progress = () => {
 
   const { expenditures, summary } = expenditure.expenditures;
 
-  if (!expenditure.expenditures) return <Loading />
+  if (!expenditure.expenditures) return <Loading />;
 
   return (
     <div>
@@ -27,7 +27,9 @@ const Progress = () => {
         <div className="history-container">
           <i className="fas fa-history" />
           <h3>History</h3>
-          { expenditures.map(expenditure => <Expenditure key={expenditure.id} expenditure={expenditure} />) }
+          { expenditures.map(expenditure => (
+            <Expenditure key={expenditure.id} expenditure={expenditure} />)
+          )}
         </div>
       </div>
       <Footer />
