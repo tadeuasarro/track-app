@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useSelector } from 'react-redux';
 import Expenditure from '../expenditure/Expenditure';
 import Loading from '../../components/loading/Loading';

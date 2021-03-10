@@ -1,5 +1,6 @@
 const createExpenditure = async data => {
-  const url = 'https://enigmatic-everglades-24941.herokuapp.com/expenditures';
+  const url = 'http://localhost:5000/expenditures';
+  // const url = 'https://enigmatic-everglades-24941.herokuapp.com/expenditures';
   const config = {
     mode: 'cors',
     method: 'POST',
