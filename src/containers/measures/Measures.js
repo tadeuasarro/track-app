@@ -88,7 +88,7 @@ const Measures = () => {
           <Error error={errorObj.expense_id} />
           <input id="form-description" className="measures-form-input" placeholder="Description" />
           <Error error={errorObj.description} />
-          <input id="form-date" className="measures-form-input" placeholder="Date yyyy/mm/dd" />
+          <input id="form-date" className="measures-form-input" type="date" placeholder="Date yyyy/mm/dd" />
           <Error error={errorObj.date} />
           <input id="form-value" className="measures-form-input" placeholder="Value" />
           <Error error={errorObj.value} />
