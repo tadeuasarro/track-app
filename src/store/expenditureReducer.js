@@ -1,41 +1,18 @@
-import {
-  INDEX_EXPENDITURES_PENDING,
-  INDEX_EXPENDITURES_SUCCESS,
-  INDEX_EXPENDITURES_ERROR,
-  ERASE_EXPENDITURE,
-} from '../actions/expenditure';
+import { SET_EXPENDITURES } from '../actions/expenditure';
 
 const initialState = {
-  pending: false,
   expenditures: false,
-  error: false,
+  summary: false,
 };
 
 const expenditureReducer = (state = initialState, action) => {
   switch (action.type) {
-    case INDEX_EXPENDITURES_PENDING:
+    case SET_EXPENDITURES:
       return {
-        ...state,
-        pending: true,
-        error: false,
-      };
-    case INDEX_EXPENDITURES_SUCCESS:
-      return {
-        pending: false,
-        expenditures: action.payload,
-        error: false,
-      };
-    case INDEX_EXPENDITURES_ERROR:
-      return {
-        ...state,
-        pending: false,
-        error: action.payload,
-      };
-    case ERASE_EXPENDITURE:
-      return {
-        ...state,
-        expenditures: false,
-      };
+        expenditures: action.payload.res,
+        summary: action.payload.summary,
+      }
+      break;
     default:
       return state;
   }

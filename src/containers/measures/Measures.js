@@ -44,7 +44,7 @@ const Measures = () => {
 
   const errorObj = (!state.error ? {} : state.error);
 
-  if (!session.user.target) {
+  if (!session.target) {
     return (
       <div>
         <div className="require-target">

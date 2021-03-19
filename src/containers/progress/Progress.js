@@ -7,7 +7,7 @@ import './progress.css';
 const Progress = () => {
   const { expenditure } = useSelector(state => state);
 
-  const { expenditures, summary } = expenditure.expenditures;
+  const { expenditures, summary } = expenditure;
 
   if (!expenditure.expenditures) return <Loading />;
 

@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
-import createSession from '../../api/createSession';
 import indexExpenditures from '../../api/indexExpenditures';
+import { setExpenditures } from '../../actions/expenditure';
+import filterExpenditures from '../../helpers/filterExpenditures';
 import Navbar from '../../components/navbar/Navbar';
-import Loading from '../../components/loading/Loading';
 import Routes from '../../Routes';
 import Login from '../login/Login';
 import './app.css';
@@ -12,8 +12,16 @@ const App = () => {
   const dispatch = useDispatch();
   const username = document.cookie.split('=')[1];
 
-  if (session.user && !expenditure.pending && !expenditure.expenditures) {
-    dispatch(indexExpenditures(session.user.id));
+  console.log(expenditure);
+
+  const handleLoad = async () => {
+    const res = await indexExpenditures(session.id);
+    const summary = filterExpenditures(res);
+    dispatch(setExpenditures({ res, summary }));
+  }
+
+  if (session.id && !expenditure.expenditures) {
+    handleLoad();
   }
 
   if (session.username === false) {
