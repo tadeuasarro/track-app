@@ -1,4 +1,5 @@
 import { SET_EXPENDITURES } from '../actions/expenditure';
+import filterExpenditures from '../helpers/filterExpenditures';
 
 const initialState = {
   expenditures: false,
@@ -8,9 +9,10 @@ const initialState = {
 const expenditureReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_EXPENDITURES:
+      const summary = action.payload ? filterExpenditures(action.payload) : [] ;
       return {
-        expenditures: action.payload.res,
-        summary: action.payload.summary,
+        expenditures: action.payload,
+        summary: summary,
       }
       break;
     default:

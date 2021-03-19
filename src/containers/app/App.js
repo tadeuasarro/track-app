@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import indexExpenditures from '../../api/indexExpenditures';
 import { setExpenditures } from '../../actions/expenditure';
-import filterExpenditures from '../../helpers/filterExpenditures';
 import Navbar from '../../components/navbar/Navbar';
 import Routes from '../../Routes';
 import Login from '../login/Login';
@@ -12,12 +11,9 @@ const App = () => {
   const dispatch = useDispatch();
   const username = document.cookie.split('=')[1];
 
-  console.log(expenditure);
-
   const handleLoad = async () => {
     const res = await indexExpenditures(session.id);
-    const summary = filterExpenditures(res);
-    dispatch(setExpenditures({ res, summary }));
+    dispatch(setExpenditures(res));
   }
 
   if (session.id && !expenditure.expenditures) {

@@ -6,8 +6,6 @@ import './home.css';
 const Home = () => {
   const { session, expenditure } = useSelector(state => state);
 
-  console.log(expenditure);
-
   const { target } = session;
 
   if (!expenditure.expenditures) return <Loading />;

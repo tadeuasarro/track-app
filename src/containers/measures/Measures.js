@@ -7,7 +7,7 @@ import Footer from '../../components/footer/Footer';
 import Error from '../../components/error/Error';
 import './measures.css';
 import createExpenditure from '../../api/createExpenditure';
-import indexExpenditures from '../../api/indexExpenditures';
+import { setExpenditures } from '../../actions/expenditure';
 
 const Measures = () => {
   const { session } = useSelector(state => state);
@@ -34,12 +34,17 @@ const Measures = () => {
       description,
       date,
       value,
-      user_id: session.user.id,
+      user_id: session.id,
     });
 
-    setState(res);
+    setState(res.state);
 
-    dispatch(indexExpenditures(session.user.id));
+    console.log(res.state);
+
+    if (!res.state.errors) {
+      dispatch(setExpenditures(res.payload));
+    }
+
   };
 
   const errorObj = (!state.error ? {} : state.error);
