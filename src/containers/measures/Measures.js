@@ -69,8 +69,6 @@ const Measures = () => {
     );
   }
 
-  console.log(errorObj);
-
   return (
     <div>
       <div className="measures-container">

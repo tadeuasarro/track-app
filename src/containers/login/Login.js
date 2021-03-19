@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import createUser from '../../api/createUser';
 import createSession from '../../api/createSession';
 import Error from '../../components/error/Error';
-import createUser from '../../api/createUser';
 import './login.css';
 
 const Login = () => {
@@ -21,18 +21,17 @@ const Login = () => {
       pending: true,
     });
 
-    let res = null;
+    let res = {};
 
     if (key) {
       const target = 0;
       res = await createUser({ username, target });
       // create login code here
     } else {
-      // create loginc code here
+      res = await createSession(username);
     }
 
-    setState(res);
-
+    setState(res.state);
   };
 
   const errorObj = (!state.error ? {} : state.error);
@@ -46,6 +45,7 @@ const Login = () => {
       <form className="login-form">
         <input id="login-input" placeholder="Username" className="login-input" type="text" />
         <button onClick={() => handleClick(false)} className="login-button" type="button">Login</button>
+        <Error error={errorObj.login} />
         <button onClick={() => handleClick(true)} className="register-button" type="button">Register</button>
         <Error error={errorObj.username} />
       </form>

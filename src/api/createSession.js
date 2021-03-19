@@ -1,34 +1,39 @@
-import {
-  createSessionPending, createSessionSuccess, createSessionError,
-} from '../actions/session';
 
-const url = 'http://localhost:5000/users';
-// const url = 'https://enigmatic-everglades-24941.herokuapp.com/users';
-const config = {
-  mode: 'cors',
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-};
-
-function createSession(username) {
-  return dispatch => {
-    dispatch(createSessionPending());
-    fetch(`${url}/${username}`, config)
-      .then(res => res.json())
-      .then(res => {
-        if (res.error) {
-          throw (res.error);
-        }
-        const { username, id, target } = res;
-        dispatch(createSessionSuccess({ username, id, target }));
-        return res;
-      })
-      .catch(error => {
-        dispatch(createSessionError(error));
-      });
+const createSession = async user => {
+  const url = `http://localhost:5000/users/${user}`;
+  // const url = 'https://enigmatic-everglades-24941.herokuapp.com/users';
+  const config = {
+    mode: 'cors',
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
   };
+  const res = await fetch(url, config);
+  const result = await res.json();
+  if (result === true) {
+    return ({
+      state: {
+        pending: false,
+        error: false,
+      },
+      payload: result,
+    });
+  }
+  if (result === null) {
+    return ({
+      state: {
+        pending: false,
+        error: { login: ['User not found'] },
+      },
+    });
+  }
+  return ({
+    state: {
+      pending: false,
+      error: { login: ["Can't be blank"] },
+    },
+  });
 }
 
 export default createSession;

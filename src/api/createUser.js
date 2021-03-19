@@ -14,13 +14,17 @@ const createExpenditure = async data => {
   const result = await res.json();
   if (result === true) {
     return ({
-      pending: false,
-      error: false,
+      state: {
+        pending: false,
+        error: false,
+      },
     });
   }
   return ({
-    pending: false,
-    error: result,
+    state: {
+      pending: false,
+      error: result,
+    },
   });
 };
 

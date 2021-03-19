@@ -1,6 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { eraseSession } from '../../actions/session';
-import { eraseExpenditure } from '../../actions/expenditure';
 import Footer from '../../components/footer/Footer';
 import CreateTarget from '../createtarget/CreateTarget';
 import './more.css';
@@ -11,8 +9,6 @@ const More = () => {
 
   const handleClick = () => {
     document.cookie = 'username=';
-    dispatch(eraseSession());
-    dispatch(eraseExpenditure());
   };
 
   return (
