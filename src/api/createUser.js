@@ -12,12 +12,13 @@ const createExpenditure = async data => {
 
   const res = await fetch(url, config);
   const result = await res.json();
-  if (result === true) {
+  if (result.id) {
     return ({
       state: {
         pending: false,
         error: false,
       },
+      payload: result,
     });
   }
   return ({

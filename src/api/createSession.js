@@ -11,21 +11,21 @@ const createSession = async user => {
   };
   const res = await fetch(url, config);
   const result = await res.json();
-  if (result === true) {
-    return ({
-      state: {
-        pending: false,
-        error: false,
-      },
-      payload: result,
-    });
-  }
   if (result === null) {
     return ({
       state: {
         pending: false,
         error: { login: ['User not found'] },
       },
+    });
+  }
+  if (result.username) {
+    return ({
+      state: {
+        pending: false,
+        error: false,
+      },
+      payload: result,
     });
   }
   return ({

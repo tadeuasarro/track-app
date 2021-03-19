@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { setCurrentUser } from '../../actions/session';
 import createUser from '../../api/createUser';
 import createSession from '../../api/createSession';
 import Error from '../../components/error/Error';
@@ -26,12 +27,16 @@ const Login = () => {
     if (key) {
       const target = 0;
       res = await createUser({ username, target });
-      // create login code here
     } else {
       res = await createSession(username);
     }
 
     setState(res.state);
+
+    if (!res.state.error) {
+      dispatch(setCurrentUser(res.payload));
+    }
+
   };
 
   const errorObj = (!state.error ? {} : state.error);

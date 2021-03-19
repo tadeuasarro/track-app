@@ -12,24 +12,11 @@ const App = () => {
   const dispatch = useDispatch();
   const username = document.cookie.split('=')[1];
 
-  if (username && session.user === false && !session.pending) {
-    dispatch(createSession(username));
-  }
-
   if (session.user && !expenditure.pending && !expenditure.expenditures) {
     dispatch(indexExpenditures(session.user.id));
   }
 
-  if (session.pending || (session.user && !expenditure.expenditures)) {
-    return (
-      <div className="app-container">
-        <Navbar />
-        <Loading />
-      </div>
-    );
-  }
-
-  if (session.user === false) {
+  if (session.username === false) {
     return (
       <div className="app-container">
         <Navbar />
@@ -38,7 +25,7 @@ const App = () => {
     );
   }
 
-  document.cookie = `username=${session.user.username}`;
+  document.cookie = `username=${session.username}`;
 
   return (
     <div className="app-container">

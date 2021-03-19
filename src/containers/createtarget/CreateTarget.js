@@ -8,7 +8,7 @@ import Error from '../../components/error/Error';
 import './createtarget.css';
 
 const CreateTarget = () => {
-  const { target, id, username } = useSelector(state => state).session.user;
+  const { target, id, username } = useSelector(state => state).session;
   const dispatch = useDispatch();
   const [state, setState] = useState({
     pending: false,
