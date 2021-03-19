@@ -44,8 +44,8 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="instructions">
-        <p>Welcome to Personal Expenses, your personal expenses managing application.</p>
-        <p>Login with your account, or fill the form and click on register!</p>
+        <p className="welcome-text">Welcome to Personal Expenses, your personal expenses managing application.</p>
+        <p className="welcome-text">Login with your account, or fill the form and click on register!</p>
       </div>
       <form className="login-form">
         <input id="login-input" placeholder="Username" className="login-input" type="text" />

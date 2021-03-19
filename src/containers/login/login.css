@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.login-container p {
+.welcome-text {
   margin-bottom: 20px;
 }
 
@@ -46,9 +46,9 @@
 
 .login-button {
   background-color: #42b05d;
-  margin-bottom: 20px;
 }
 
 .register-button {
+  margin-top: 20px;
   background-color: blue;
 }

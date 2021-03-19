@@ -31,7 +31,7 @@ const createSession = async user => {
   return ({
     state: {
       pending: false,
-      error: { login: ["Can't be blank"] },
+      error: { login: ['Invalid username'] },
     },
   });
 }
