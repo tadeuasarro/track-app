@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, UPDATE_CURRENT_USER} from '../actions/session';
+import { SET_CURRENT_USER, UPDATE_USER_TARGET} from '../actions/session';
 
 const initialState = {
   username: false,
@@ -14,6 +14,11 @@ const sessionReducer = (state = initialState, action) => {
         username : username,
         id: id,
         target: target,
+      }
+    case UPDATE_USER_TARGET:
+      return {
+        ...state,
+        target: action.payload,
       }
     default:
       return state;

@@ -1,4 +1,4 @@
-const createExpenditure = async (data, id) => {
+const updateUser = async (data, id) => {
   const url = `http://localhost:5000/users/${id}`;
   // const url = `https://enigmatic-everglades-24941.herokuapp.com/users/${id}`;
   const config = {
@@ -12,16 +12,21 @@ const createExpenditure = async (data, id) => {
 
   const res = await fetch(url, config);
   const result = await res.json();
-  if (result === true) {
+  if (result.id) {
     return ({
-      pending: false,
-      error: false,
+      state: {
+        pending: false,
+        error: false,
+      },
+      payload: result,
     });
   }
   return ({
-    pending: false,
-    error: result,
+    state: {
+      pending: false,
+      error: result,
+    },
   });
 };
 
-export default createExpenditure;
+export default updateUser;
