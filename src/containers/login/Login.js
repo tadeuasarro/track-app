@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import createSession from '../../api/createSession';
+import Error from '../../components/error/Error';
 import createUser from '../../api/createUser';
 import './login.css';
 
@@ -12,28 +13,29 @@ const Login = () => {
     error: false,
   });
 
-  const handleLoginClick = () => {
+  const handleClick = async key => {
     const username = document.getElementById('login-input').value;
-    dispatch(createSession(username));
-  };
-
-  const handleRegisterClick = async () => {
-    const username = document.getElementById('login-input').value;
-    const target = 0;
 
     setState({
       ...state,
       pending: true,
     });
 
-    const res = await createUser({ username, target });
+    let res = null;
 
-    setState(res.state);
-
-    if (!res.error) {
-      dispatch(createSession(username));
+    if (key) {
+      const target = 0;
+      res = await createUser({ username, target });
+      // create login code here
+    } else {
+      // create loginc code here
     }
+
+    setState(res);
+
   };
+
+  const errorObj = (!state.error ? {} : state.error);
 
   return (
     <div className="login-container">
@@ -42,9 +44,10 @@ const Login = () => {
         <p>Login with your account, or fill the form and click on register!</p>
       </div>
       <form className="login-form">
-        <input id="login-input" placeholder="Min: 4, max: 20 chars" className="login-input" type="text" />
-        <button onClick={() => handleLoginClick()} className="login-button" type="button">Login</button>
-        <button onClick={() => handleRegisterClick()} className="register-button" type="button">Register</button>
+        <input id="login-input" placeholder="Username" className="login-input" type="text" />
+        <button onClick={() => handleClick(false)} className="login-button" type="button">Login</button>
+        <button onClick={() => handleClick(true)} className="register-button" type="button">Register</button>
+        <Error error={errorObj.username} />
       </form>
     </div>
   );

@@ -7,9 +7,7 @@ import {
 } from '../actions/session';
 
 const initialState = {
-  pending: false,
   user: false,
-  error: false,
 };
 
 const sessionReducer = (state = initialState, action) => {
