@@ -69,6 +69,8 @@ const Measures = () => {
     );
   }
 
+  console.log(errorObj);
+
   return (
     <div>
       <div className="measures-container">
@@ -83,7 +85,7 @@ const Measures = () => {
             <option value="5">Living</option>
             <option value="6">Transport</option>
           </select>
-          <Error error={errorObj.expense} />
+          <Error error={errorObj.expense_id} />
           <input id="form-description" className="measures-form-input" placeholder="Description" />
           <Error error={errorObj.description} />
           <input id="form-date" className="measures-form-input" placeholder="Date yyyy/mm/dd" />
