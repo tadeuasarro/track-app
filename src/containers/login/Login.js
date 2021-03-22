@@ -5,6 +5,7 @@ import createUser from '../../api/createUser';
 import createSession from '../../api/createSession';
 import Error from '../../components/error/Error';
 import './login.css';
+import { setExpenditures } from '../../actions/expenditure';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const Login = () => {
 
     if (!res.state.error) {
       dispatch(setCurrentUser(res.payload));
+      dispatch(setExpenditures(res.payload.expenditures));
     }
 
   };

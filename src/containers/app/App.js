@@ -13,25 +13,16 @@ const App = () => {
   const dispatch = useDispatch();
   const username = window.localStorage.getItem('track');
 
-  const handleExpenditures = async () => {
-    const res = await indexExpenditures(session.id);
-    dispatch(setExpenditures(res));
-  }
-
   const handleSession = async () => {
     const res = await createSession(username);
-    console.log(res);
     if (!res.state.error) {
       dispatch(setCurrentUser(res.payload));
+      dispatch(setExpenditures(res.payload.expenditures));
     }
   }
 
   if (!session.id && username) {
     handleSession();
-  }
-
-  if (session.id && !expenditure.expenditures) {
-    handleExpenditures();
   }
 
   if (session.username === false) {

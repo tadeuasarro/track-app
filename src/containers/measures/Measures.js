@@ -39,8 +39,6 @@ const Measures = () => {
 
     setState(res.state);
 
-    console.log(res.state);
-
     if (!res.state.errors) {
       dispatch(setExpenditures(res.payload));
     }

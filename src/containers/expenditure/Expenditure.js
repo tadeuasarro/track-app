@@ -41,8 +41,10 @@ const Expenditure = ({ expenditure }) => {
     const res = await deleteExpenditures(id);
 
     setState(res.state);
+
+    console.log(res.payload);
     if (!res.state.error) {
-      dispatch(setExpenditures());
+      dispatch(setExpenditures(res.payload));
     }
   };
 
