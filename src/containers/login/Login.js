@@ -41,7 +41,7 @@ const Login = () => {
     }
   };
 
-  if (state.pending) return <Loading />
+  if (state.pending) return <Loading />;
 
   const errorObj = (!state.error ? {} : state.error);
 
