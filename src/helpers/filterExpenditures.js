@@ -8,6 +8,8 @@ const filterExpenditures = expenditures => {
   let living = 0;
   let transport = 0;
 
+  if (!expenditures) return false;
+
   expenditures.map(expenditure => {
     const { value, expense_id } = expenditure;
     switch (expense_id) {

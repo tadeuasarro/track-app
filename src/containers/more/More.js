@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Footer from '../../components/footer/Footer';
-import { eraseExpenditure } from '../../actions/expenditure';
 import { setCurrentUser } from '../../actions/session';
+import { setExpenditures } from '../../actions/expenditure';
 import CreateTarget from '../createtarget/CreateTarget';
 import './more.css';
 
@@ -12,6 +12,8 @@ const More = () => {
   const handleClick = () => {
     document.cookie = 'username=';
     dispatch(setCurrentUser({ id: false, username: false, target: false }));
+    dispatch(setExpenditures(false))
+    window.localStorage.removeItem('track');
   };
 
   return (

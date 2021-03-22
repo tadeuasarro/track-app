@@ -1,23 +1,37 @@
 import { useSelector, useDispatch } from 'react-redux';
 import indexExpenditures from '../../api/indexExpenditures';
+import { setCurrentUser } from '../../actions/session';
 import { setExpenditures } from '../../actions/expenditure';
 import Navbar from '../../components/navbar/Navbar';
 import Routes from '../../Routes';
 import Login from '../login/Login';
 import './app.css';
+import createSession from '../../api/createSession';
 
 const App = () => {
   const { session, expenditure } = useSelector(state => state);
   const dispatch = useDispatch();
-  const username = document.cookie.split('=')[1];
+  const username = window.localStorage.getItem('track');
 
-  const handleLoad = async () => {
+  const handleExpenditures = async () => {
     const res = await indexExpenditures(session.id);
     dispatch(setExpenditures(res));
   }
 
+  const handleSession = async () => {
+    const res = await createSession(username);
+    console.log(res);
+    if (!res.state.error) {
+      dispatch(setCurrentUser(res.payload));
+    }
+  }
+
+  if (!session.id && username) {
+    handleSession();
+  }
+
   if (session.id && !expenditure.expenditures) {
-    handleLoad();
+    handleExpenditures();
   }
 
   if (session.username === false) {
@@ -29,7 +43,7 @@ const App = () => {
     );
   }
 
-  document.cookie = `username=${session.username}`;
+  window.localStorage.setItem('track', session.username);
 
   return (
     <div className="app-container">
