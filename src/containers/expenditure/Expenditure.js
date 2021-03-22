@@ -42,7 +42,6 @@ const Expenditure = ({ expenditure }) => {
 
     setState(res.state);
 
-    console.log(res.payload);
     if (!res.state.error) {
       dispatch(setExpenditures(res.payload));
     }

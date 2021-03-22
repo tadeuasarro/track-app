@@ -8,7 +8,9 @@ const filterExpenditures = expenditures => {
   let living = 0;
   let transport = 0;
 
-  if (!expenditures) return false;
+  if (!expenditures) {
+    return false;
+  }
 
   expenditures.map(expenditure => {
     const { value, expense_id } = expenditure;

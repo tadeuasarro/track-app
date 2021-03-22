@@ -14,12 +14,27 @@ exports[`Display renders correctly 1`] = `
   <div
     className="login-container"
   >
+    <div
+      className="instructions"
+    >
+      <p
+        className="welcome-text"
+      >
+        Welcome to Personal Expenses, your personal expenses managing application.
+      </p>
+      <p
+        className="welcome-text"
+      >
+        Login with your account, or fill the form and click on register!
+      </p>
+    </div>
     <form
       className="login-form"
     >
       <input
         className="login-input"
         id="login-input"
+        placeholder="Username"
         type="text"
       />
       <button
@@ -29,6 +44,7 @@ exports[`Display renders correctly 1`] = `
       >
         Login
       </button>
+      
       <button
         className="register-button"
         onClick={[Function]}
@@ -36,6 +52,7 @@ exports[`Display renders correctly 1`] = `
       >
         Register
       </button>
+      
     </form>
   </div>
 </div>
