@@ -1,5 +1,5 @@
 const indexExpenditures = async userId => {
-  const url = 'https://enigmatic-everglades-24941.herokuapp.com/expenditures?user_id=';
+  const url = `https://enigmatic-everglades-24941.herokuapp.com/expenditures?user_id=${userId}`;
   const config = {
     mode: 'cors',
     method: 'GET',
