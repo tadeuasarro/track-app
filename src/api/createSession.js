@@ -8,29 +8,21 @@ const createSession = async user => {
     },
   };
   const res = await fetch(url, config);
+  if (res.status === 404) {
+    return ({
+      state: {
+        pending: false,
+        error: { login: ['Invalid username'] },
+      },
+    });
+  }
   const result = await res.json();
-  if (result === null) {
-    return ({
-      state: {
-        pending: false,
-        error: { login: ['User not found'] },
-      },
-    });
-  }
-  if (result.username) {
-    return ({
-      state: {
-        pending: false,
-        error: false,
-      },
-      payload: result,
-    });
-  }
   return ({
     state: {
       pending: false,
-      error: { login: ['Invalid username'] },
+      error: false,
     },
+    payload: result,
   });
 };
 
