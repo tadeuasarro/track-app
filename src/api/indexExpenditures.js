@@ -12,6 +12,6 @@ const indexExpenditures = async userId => {
   const res = await fetch(url, config);
   const result = await res.json();
   return result;
-}
+};
 
 export default indexExpenditures;

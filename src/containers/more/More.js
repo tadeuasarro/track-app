@@ -6,13 +6,13 @@ import CreateTarget from '../createtarget/CreateTarget';
 import './more.css';
 
 const More = () => {
-  const { session, expenditures } = useSelector(state => state);
+  const { session } = useSelector(state => state);
   const dispatch = useDispatch(state => state);
 
   const handleClick = () => {
     document.cookie = 'username=';
     dispatch(setCurrentUser({ id: false, username: false, target: false }));
-    dispatch(setExpenditures(false))
+    dispatch(setExpenditures(false));
     window.localStorage.removeItem('track');
   };
 

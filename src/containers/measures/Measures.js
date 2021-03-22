@@ -42,7 +42,6 @@ const Measures = () => {
     if (!res.state.errors) {
       dispatch(setExpenditures(res.payload));
     }
-
   };
 
   const errorObj = (!state.error ? {} : state.error);

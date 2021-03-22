@@ -41,13 +41,13 @@ describe('Detail Reducer', () => {
         leisure: 1000,
         living: 1000,
         transport: 1000,
-      }
-    })
+      },
+    });
   });
 
   it('resets the expenditures to initial state', () => {
     const mockState = { expenditures: 'some mock information', summary: 'another mock information' };
-    const mockAction = { type: SET_EXPENDITURES, payload: false }
+    const mockAction = { type: SET_EXPENDITURES, payload: false };
     const state = expenditureReducer(mockState, mockAction);
     expect(state).toStrictEqual({ expenditures: false, summary: false });
   });

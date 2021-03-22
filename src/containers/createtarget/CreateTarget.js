@@ -34,7 +34,6 @@ const CreateTarget = () => {
       dispatch(updateUserTarget(res.payload.target));
       dispatch(setExpenditures(res.payload.expenditures));
     }
-
   };
 
   if (state.pending) {
@@ -42,10 +41,10 @@ const CreateTarget = () => {
       <div className="loading-container">
         <h1>Please wait...</h1>
       </div>
-    )
+    );
   }
 
-  const errorObj = (!state.error ? {} : state.error );
+  const errorObj = (!state.error ? {} : state.error);
 
   if (target) {
     return (

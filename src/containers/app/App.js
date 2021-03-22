@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from 'react-redux';
-import indexExpenditures from '../../api/indexExpenditures';
 import { setCurrentUser } from '../../actions/session';
 import { setExpenditures } from '../../actions/expenditure';
 import Navbar from '../../components/navbar/Navbar';
@@ -9,7 +8,7 @@ import './app.css';
 import createSession from '../../api/createSession';
 
 const App = () => {
-  const { session, expenditure } = useSelector(state => state);
+  const { session } = useSelector(state => state);
   const dispatch = useDispatch();
   const username = window.localStorage.getItem('track');
 
@@ -19,7 +18,7 @@ const App = () => {
       dispatch(setCurrentUser(res.payload));
       dispatch(setExpenditures(res.payload.expenditures));
     }
-  }
+  };
 
   if (!session.id && username) {
     handleSession();

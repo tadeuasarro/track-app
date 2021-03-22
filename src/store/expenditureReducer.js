@@ -9,11 +9,10 @@ const initialState = {
 const expenditureReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_EXPENDITURES:
-      const summary = filterExpenditures(action.payload);
       return {
         expenditures: action.payload,
-        summary: summary,
-      }
+        summary: filterExpenditures(action.payload),
+      };
     default:
       return state;
   }

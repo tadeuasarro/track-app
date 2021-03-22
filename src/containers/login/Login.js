@@ -38,7 +38,6 @@ const Login = () => {
       dispatch(setCurrentUser(res.payload));
       dispatch(setExpenditures(res.payload.expenditures));
     }
-
   };
 
   const errorObj = (!state.error ? {} : state.error);

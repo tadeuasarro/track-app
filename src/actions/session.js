@@ -9,4 +9,4 @@ export const setCurrentUser = user => ({
 export const updateUserTarget = target => ({
   type: UPDATE_USER_TARGET,
   payload: target,
-})
+});
