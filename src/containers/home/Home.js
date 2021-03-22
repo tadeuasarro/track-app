@@ -6,7 +6,7 @@ import './home.css';
 const Home = () => {
   const { session, expenditure } = useSelector(state => state);
 
-  const { target } = session.user;
+  const { target } = session;
 
   if (!expenditure.expenditures) return <Loading />;
 
@@ -18,7 +18,7 @@ const Home = () => {
     leisure,
     living,
     transport,
-  } = expenditure.expenditures.summary;
+  } = expenditure.summary;
 
   return (
     <div>

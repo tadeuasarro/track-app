@@ -1,14 +1,13 @@
-/* eslint-disable */
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import createSession from '../../api/createSession';
 import updateUser from '../../api/updateUser';
-import indexExpenditures from '../../api/indexExpenditures';
+import { updateUserTarget } from '../../actions/session';
+import { setExpenditures } from '../../actions/expenditure';
 import Error from '../../components/error/Error';
 import './createtarget.css';
 
 const CreateTarget = () => {
-  const { target, id, username } = useSelector(state => state).session.user;
+  const { target, id } = useSelector(state => state).session;
   const dispatch = useDispatch();
   const [state, setState] = useState({
     pending: false,
@@ -29,11 +28,11 @@ const CreateTarget = () => {
 
     const res = await updateUser({ target: newTarget }, id);
 
-    setState(res);
+    setState(res.state);
 
-    if (!res.error) {
-      dispatch(createSession(username));
-      dispatch(indexExpenditures(id));
+    if (!res.state.error) {
+      dispatch(updateUserTarget(res.payload.target));
+      dispatch(setExpenditures(res.payload.expenditures));
     }
   };
 
@@ -42,10 +41,10 @@ const CreateTarget = () => {
       <div className="loading-container">
         <h1>Please wait...</h1>
       </div>
-    )
+    );
   }
 
-  const errorObj = (!state.error ? {} : state.error );
+  const errorObj = (!state.error ? {} : state.error);
 
   if (target) {
     return (

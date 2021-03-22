@@ -10,15 +10,20 @@ const deleteExpenditures = async id => {
 
   const res = await fetch(url, config);
   const result = await res.json();
-  if (result === true) {
+  if (result.errors) {
     return ({
-      pending: false,
-      error: false,
+      state: {
+        pending: false,
+        error: result.errors,
+      },
     });
   }
   return ({
-    pending: false,
-    error: result,
+    state: {
+      pending: false,
+      error: false,
+    },
+    payload: result,
   });
 };
 

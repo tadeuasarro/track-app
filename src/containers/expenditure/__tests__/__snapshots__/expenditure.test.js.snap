@@ -40,9 +40,13 @@ exports[`Display renders correctly 1`] = `
      
     Education
   </p>
-  <i
-    className="fas fa-trash-alt"
+  <button
     onClick={[Function]}
-  />
+    type="button"
+  >
+    <i
+      className="fas fa-trash-alt"
+    />
+  </button>
 </div>
 `;

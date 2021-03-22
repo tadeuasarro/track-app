@@ -1,33 +1,29 @@
-import {
-  createSessionPending, createSessionSuccess, createSessionError,
-} from '../actions/session';
-
-const url = 'https://enigmatic-everglades-24941.herokuapp.com/users';
-const config = {
-  mode: 'cors',
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-};
-
-function createSession(username) {
-  return dispatch => {
-    dispatch(createSessionPending());
-    fetch(`${url}/${username}`, config)
-      .then(res => res.json())
-      .then(res => {
-        if (res.error) {
-          throw (res.error);
-        }
-        const { username, id, target } = res;
-        dispatch(createSessionSuccess({ username, id, target }));
-        return res;
-      })
-      .catch(error => {
-        dispatch(createSessionError(error));
-      });
+const createSession = async user => {
+  const url = `https://enigmatic-everglades-24941.herokuapp.com/users/${user}`;
+  const config = {
+    mode: 'cors',
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
   };
-}
+  const res = await fetch(url, config);
+  if (res.status === 404) {
+    return ({
+      state: {
+        pending: false,
+        error: { login: ['Invalid username'] },
+      },
+    });
+  }
+  const result = await res.json();
+  return ({
+    state: {
+      pending: false,
+      error: false,
+    },
+    payload: result,
+  });
+};
 
 export default createSession;

@@ -1,28 +1,12 @@
-export const CREATE_SESSION_PENDING = 'CREATE_SESSION_PENDING';
-export const CREATE_SESSION_SUCCESS = 'CREATE_SESSION_SUCCESS';
-export const CREATE_SESSION_ERROR = 'CREATE_SESSION_ERROR';
-export const ERASE_SESSION = 'ERASE_SESSION';
-export const UPDATE_TARGET = 'UPDATE_TARGET';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const UPDATE_USER_TARGET = 'UPDATE_USER_TARGET';
 
-export const createSessionPending = () => ({
-  type: CREATE_SESSION_PENDING,
-});
-
-export const createSessionSuccess = user => ({
-  type: CREATE_SESSION_SUCCESS,
+export const setCurrentUser = user => ({
+  type: SET_CURRENT_USER,
   payload: user,
 });
 
-export const createSessionError = error => ({
-  type: CREATE_SESSION_ERROR,
-  payload: error,
-});
-
-export const eraseSession = () => ({
-  type: ERASE_SESSION,
-});
-
-export const updateTarget = target => ({
-  type: UPDATE_TARGET,
+export const updateUserTarget = target => ({
+  type: UPDATE_USER_TARGET,
   payload: target,
 });

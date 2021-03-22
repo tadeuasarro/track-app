@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Loading from '../../components/loading/Loading';
 import deleteExpenditures from '../../api/deleteExpenditures';
-import indexExpenditures from '../../api/indexExpenditures';
 import './expenditure.css';
+import { setExpenditures } from '../../actions/expenditure';
 
 const expenses = [
   'Total',
@@ -23,7 +23,6 @@ const Expenditure = ({ expenditure }) => {
     error: false,
   });
 
-  const { user } = useSelector(state => state).session;
   const dispatch = useDispatch();
   const {
     value,
@@ -39,9 +38,11 @@ const Expenditure = ({ expenditure }) => {
     });
 
     const res = await deleteExpenditures(id);
-    setState(res);
-    if (!res.error) {
-      dispatch(indexExpenditures(user.id));
+
+    setState(res.state);
+
+    if (!res.state.error) {
+      dispatch(setExpenditures(res.payload));
     }
   };
 

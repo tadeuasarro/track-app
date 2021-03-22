@@ -7,7 +7,7 @@ import Footer from '../../components/footer/Footer';
 import Error from '../../components/error/Error';
 import './measures.css';
 import createExpenditure from '../../api/createExpenditure';
-import indexExpenditures from '../../api/indexExpenditures';
+import { setExpenditures } from '../../actions/expenditure';
 
 const Measures = () => {
   const { session } = useSelector(state => state);
@@ -34,17 +34,19 @@ const Measures = () => {
       description,
       date,
       value,
-      user_id: session.user.id,
+      user_id: session.id,
     });
 
-    setState(res);
+    setState(res.state);
 
-    dispatch(indexExpenditures(session.user.id));
+    if (!res.state.errors) {
+      dispatch(setExpenditures(res.payload));
+    }
   };
 
   const errorObj = (!state.error ? {} : state.error);
 
-  if (!session.user.target) {
+  if (!session.target) {
     return (
       <div>
         <div className="require-target">
@@ -83,10 +85,10 @@ const Measures = () => {
             <option value="5">Living</option>
             <option value="6">Transport</option>
           </select>
-          <Error error={errorObj.expense} />
+          <Error error={errorObj.expense_id} />
           <input id="form-description" className="measures-form-input" placeholder="Description" />
           <Error error={errorObj.description} />
-          <input id="form-date" className="measures-form-input" placeholder="Date yyyy/mm/dd" />
+          <input id="form-date" className="measures-form-input" type="date" placeholder="Date yyyy/mm/dd" />
           <Error error={errorObj.date} />
           <input id="form-value" className="measures-form-input" placeholder="Value" />
           <Error error={errorObj.value} />

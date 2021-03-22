@@ -11,15 +11,20 @@ const createExpenditure = async data => {
 
   const res = await fetch(url, config);
   const result = await res.json();
-  if (result === true) {
+  if (result.id) {
     return ({
-      pending: false,
-      error: false,
+      state: {
+        pending: false,
+        error: false,
+      },
+      payload: result,
     });
   }
   return ({
-    pending: false,
-    error: result,
+    state: {
+      pending: false,
+      error: result,
+    },
   });
 };
 

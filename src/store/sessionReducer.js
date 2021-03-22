@@ -1,43 +1,23 @@
-import {
-  CREATE_SESSION_SUCCESS,
-  CREATE_SESSION_PENDING,
-  CREATE_SESSION_ERROR,
-  ERASE_SESSION,
-  UPDATE_TARGET,
-} from '../actions/session';
+import { SET_CURRENT_USER, UPDATE_USER_TARGET } from '../actions/session';
 
 const initialState = {
-  pending: false,
-  user: false,
-  error: false,
+  username: false,
+  id: false,
+  target: false,
 };
 
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_SESSION_PENDING:
-      return { ...state, pending: true, error: false };
-    case CREATE_SESSION_SUCCESS:
+    case SET_CURRENT_USER:
       return {
-        pending: false,
-        user: action.payload,
-        error: false,
+        username: action.payload.username,
+        id: action.payload.id,
+        target: action.payload.target,
       };
-    case CREATE_SESSION_ERROR:
-      return { ...state, pending: false, error: action.payload };
-    case ERASE_SESSION:
+    case UPDATE_USER_TARGET:
       return {
         ...state,
-        user: false,
-        error: false,
-      };
-    case UPDATE_TARGET:
-      return {
-        ...state,
-        user: {
-          username: state.user.username,
-          id: state.user.id,
-          target: action.payload,
-        },
+        target: action.payload,
       };
     default:
       return state;

@@ -1,35 +1,30 @@
 import { useSelector, useDispatch } from 'react-redux';
-import createSession from '../../api/createSession';
-import indexExpenditures from '../../api/indexExpenditures';
+import { setCurrentUser } from '../../actions/session';
+import { setExpenditures } from '../../actions/expenditure';
 import Navbar from '../../components/navbar/Navbar';
-import Loading from '../../components/loading/Loading';
 import Routes from '../../Routes';
 import Login from '../login/Login';
 import './app.css';
+import createSession from '../../api/createSession';
 
 const App = () => {
-  const { session, expenditure } = useSelector(state => state);
+  const { session } = useSelector(state => state);
   const dispatch = useDispatch();
-  const username = document.cookie.split('=')[1];
+  const username = window.localStorage.getItem('track');
 
-  if (username && session.user === false && !session.pending) {
-    dispatch(createSession(username));
+  const handleSession = async () => {
+    const res = await createSession(username);
+    if (!res.state.error) {
+      dispatch(setCurrentUser(res.payload));
+      dispatch(setExpenditures(res.payload.expenditures));
+    }
+  };
+
+  if (!session.id && username) {
+    handleSession();
   }
 
-  if (session.user && !expenditure.pending && !expenditure.expenditures) {
-    dispatch(indexExpenditures(session.user.id));
-  }
-
-  if (session.pending || (session.user && !expenditure.expenditures)) {
-    return (
-      <div className="app-container">
-        <Navbar />
-        <Loading />
-      </div>
-    );
-  }
-
-  if (session.user === false) {
+  if (session.username === false) {
     return (
       <div className="app-container">
         <Navbar />
@@ -38,7 +33,7 @@ const App = () => {
     );
   }
 
-  document.cookie = `username=${session.user.username}`;
+  window.localStorage.setItem('track', session.username);
 
   return (
     <div className="app-container">
