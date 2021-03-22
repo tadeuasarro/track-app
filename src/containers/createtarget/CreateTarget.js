@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import updateUser from '../../api/updateUser';
 import { updateUserTarget } from '../../actions/session';
+import { setExpenditures } from '../../actions/expenditure';
 import Error from '../../components/error/Error';
 import './createtarget.css';
 
@@ -31,6 +32,7 @@ const CreateTarget = () => {
 
     if (!res.state.error) {
       dispatch(updateUserTarget(res.payload.target));
+      dispatch(setExpenditures(res.payload.expenditures));
     }
 
   };
