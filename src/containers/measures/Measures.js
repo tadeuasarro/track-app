@@ -19,7 +19,7 @@ const Measures = () => {
   });
 
   const handleClick = async () => {
-    const expense_id = document.getElementById('form-category').value;
+    const category = document.getElementById('form-category').value;
     const description = document.getElementById('form-description').value;
     const date = document.getElementById('form-date').value;
     const value = document.getElementById('form-value').value;
@@ -30,7 +30,7 @@ const Measures = () => {
     });
 
     const res = await createExpenditure({
-      expense_id,
+      category,
       description,
       date,
       value,

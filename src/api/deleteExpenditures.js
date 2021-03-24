@@ -1,5 +1,6 @@
 const deleteExpenditures = async id => {
-  const url = `https://enigmatic-everglades-24941.herokuapp.com/expenditures/${id}`;
+  const url = `http://localhost:5000/expenditures/${id}`;
+  // const url = `https://enigmatic-everglades-24941.herokuapp.com/expenditures/${id}`;
   const config = {
     mode: 'cors',
     method: 'DELETE',

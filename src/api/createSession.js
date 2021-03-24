@@ -1,5 +1,6 @@
 const createSession = async user => {
-  const url = `https://enigmatic-everglades-24941.herokuapp.com/users/${user}`;
+  const url = `http://localhost:5000/users/${user}`;
+  // const url = `https://enigmatic-everglades-24941.herokuapp.com/users/${user}`;
   const config = {
     mode: 'cors',
     method: 'GET',

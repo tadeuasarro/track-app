@@ -37,7 +37,11 @@ const Login = () => {
 
     if (!res.state.error) {
       dispatch(setCurrentUser(res.payload));
-      dispatch(setExpenditures(res.payload.expenditures));
+      if (key) {
+        dispatch(setExpenditures([]));
+      } else {
+        dispatch(setExpenditures(res.payload.expenditures));
+      }
     }
   };
 

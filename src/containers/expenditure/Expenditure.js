@@ -28,7 +28,7 @@ const Expenditure = ({ expenditure }) => {
     value,
     description,
     date,
-    expense_id,
+    category,
     id,
   } = expenditure;
   const handleClick = async id => {
@@ -68,7 +68,7 @@ const Expenditure = ({ expenditure }) => {
       <p className="expenditure">
         <span>Category:</span>
         &nbsp;
-        {expenses[expense_id]}
+        {expenses[category]}
       </p>
       <button type="button" onClick={() => handleClick(id)}>
         <i className="fas fa-trash-alt" />
@@ -79,7 +79,7 @@ const Expenditure = ({ expenditure }) => {
 
 Expenditure.propTypes = {
   expenditure: PropTypes.shape({
-    expense_id: PropTypes.number.isRequired,
+    category: PropTypes.number.isRequired,
     user_id: PropTypes.number.isRequired,
     value: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,

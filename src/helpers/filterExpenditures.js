@@ -13,8 +13,8 @@ const filterExpenditures = expenditures => {
   }
 
   expenditures.map(expenditure => {
-    const { value, expense_id } = expenditure;
-    switch (expense_id) {
+    const { value, category } = expenditure;
+    switch (category) {
       case 1:
         education += value;
         break;
