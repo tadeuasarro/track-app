@@ -1,9 +1,8 @@
 export const SET_LOADING = 'SET_LOADING';
 export const SET_ERRORS = 'SET_ERRORS';
 
-export const setLoading = loading => ({
+export const setLoading = () => ({
   type: SET_LOADING,
-  payload: loading,
 });
 
 export const setErrors = target => ({

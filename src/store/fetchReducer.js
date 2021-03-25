@@ -9,7 +9,7 @@ const fetchReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_LOADING:
       return {
-        loading: action.payload,
+        loading: true,
         errors: false,
       };
     case SET_ERRORS:

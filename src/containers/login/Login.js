@@ -20,7 +20,7 @@ const Login = () => {
   };
 
   const handleClick = async key => {
-    dispatch(setLoading(true));
+    dispatch(setLoading());
 
     let res = {};
 
@@ -31,9 +31,9 @@ const Login = () => {
       res = await createSession(username);
     }
 
-    dispatch(setErrors(res.state.error));
+    dispatch(setErrors(res.error));
 
-    if (!res.state.error) {
+    if (!res.error) {
       dispatch(setCurrentUser(res.payload));
       if (key) {
         dispatch(setExpenditures([]));

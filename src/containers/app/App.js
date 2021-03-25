@@ -4,6 +4,7 @@ import { setExpenditures } from '../../actions/expenditure';
 import Navbar from '../../components/navbar/Navbar';
 import Routes from '../../Routes';
 import Login from '../login/Login';
+import Loading from '../../components/loading/Loading';
 import './app.css';
 import createSession from '../../api/createSession';
 
@@ -14,7 +15,7 @@ const App = () => {
 
   const handleSession = async () => {
     const res = await createSession(username);
-    if (!res.state.error) {
+    if (!res.error) {
       dispatch(setCurrentUser(res.payload));
       dispatch(setExpenditures(res.payload.expenditures));
     }
@@ -22,6 +23,7 @@ const App = () => {
 
   if (!session.id && username) {
     handleSession();
+    return <Loading />;
   }
 
   if (session.username === false) {
