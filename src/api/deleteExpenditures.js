@@ -13,18 +13,11 @@ const deleteExpenditures = async id => {
   const result = await res.json();
   if (result.errors) {
     return ({
-      state: {
-        pending: false,
-        error: result.errors,
-      },
+      error: result.errors,
     });
   }
   return ({
-    state: {
-      pending: false,
-      error: false,
-    },
-    payload: result,
+    error: false,
   });
 };
 

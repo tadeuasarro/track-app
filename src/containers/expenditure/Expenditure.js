@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import deleteExpenditures from '../../api/deleteExpenditures';
 import './expenditure.css';
-import { setExpenditures } from '../../actions/expenditure';
+import { setErrors, setLoading } from '../../actions/fetch';
+import updateExpenditures from '../../helpers/updateExpenditures';
 
 const expenses = [
   'Total',
@@ -17,11 +17,7 @@ const expenses = [
 ];
 
 const Expenditure = ({ expenditure }) => {
-  const [state, setState] = useState({
-    pending: false,
-    error: false,
-  });
-
+  const { session } = useSelector(state => state);
   const dispatch = useDispatch();
   const {
     value,
@@ -30,18 +26,16 @@ const Expenditure = ({ expenditure }) => {
     category,
     id,
   } = expenditure;
+
   const handleClick = async id => {
-    setState({
-      ...state,
-      pending: true,
-    });
+    dispatch(setLoading());
 
     const res = await deleteExpenditures(id);
 
-    setState(res.state);
+    dispatch(setErrors(res.error));
 
-    if (!res.state.error) {
-      dispatch(setExpenditures(res.payload));
+    if (!res.error) {
+      updateExpenditures(session.id, dispatch);
     }
   };
 

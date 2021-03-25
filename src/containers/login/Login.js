@@ -5,8 +5,8 @@ import createUser from '../../api/createUser';
 import createSession from '../../api/createSession';
 import Error from '../../components/error/Error';
 import './login.css';
-import { setExpenditures } from '../../actions/expenditure';
 import { setErrors, setLoading } from '../../actions/fetch';
+import updateExpenditures from '../../helpers/updateExpenditures';
 
 const Login = () => {
   const { fetch } = useSelector(state => state);
@@ -34,11 +34,7 @@ const Login = () => {
 
     if (!res.error) {
       dispatch(setCurrentUser(res.payload));
-      if (key) {
-        dispatch(setExpenditures([]));
-      } else {
-        dispatch(setExpenditures(res.payload.expenditures));
-      }
+      updateExpenditures(res.payload.user.id, dispatch);
     }
   };
 

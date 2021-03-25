@@ -1,14 +1,13 @@
-/* eslint-disable */
 import { useSelector, useDispatch } from 'react-redux';
-import jwt_decode from "jwt-decode";
+import jwtDecode from 'jwt-decode';
 import { setCurrentUser } from '../../actions/session';
-import { setExpenditures } from '../../actions/expenditure';
 import Navbar from '../../components/navbar/Navbar';
 import Routes from '../../Routes';
 import Login from '../login/Login';
 import Loading from '../../components/loading/Loading';
 import './app.css';
 import createSession from '../../api/createSession';
+import updateExpenditures from '../../helpers/updateExpenditures';
 
 const App = () => {
   const { session, fetch } = useSelector(state => state);
@@ -16,10 +15,10 @@ const App = () => {
   const username = window.localStorage.getItem('track');
 
   const handleSession = async () => {
-    const res = await createSession(jwt_decode(username));
+    const res = await createSession(jwtDecode(username));
     if (!res.error) {
       dispatch(setCurrentUser(res.payload));
-      dispatch(setExpenditures(res.payload.expenditures));
+      updateExpenditures(res.payload.user.id, dispatch);
     }
   };
 

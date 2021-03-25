@@ -11,7 +11,7 @@ const More = () => {
 
   const handleClick = () => {
     dispatch(setCurrentUser({ user: { id: false, username: false, target: false }, token: false }));
-    dispatch(setExpenditures(false));
+    dispatch(setExpenditures([]));
     window.localStorage.removeItem('track');
   };
 

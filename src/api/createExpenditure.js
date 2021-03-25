@@ -12,7 +12,7 @@ const createExpenditure = async data => {
 
   const res = await fetch(url, config);
   const result = await res.json();
-  if (result.expense_id || result.date || result.description || result.value) {
+  if (!result.id) {
     return ({
       error: result,
     });

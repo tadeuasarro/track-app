@@ -6,7 +6,7 @@ import Footer from '../../components/footer/Footer';
 import Error from '../../components/error/Error';
 import './measures.css';
 import createExpenditure from '../../api/createExpenditure';
-import { setExpenditures } from '../../actions/expenditure';
+import updateExpenditures from '../../helpers/updateExpenditures';
 import { setErrors, setLoading } from '../../actions/fetch';
 
 const Measures = () => {
@@ -44,7 +44,7 @@ const Measures = () => {
     dispatch(setErrors(res.error));
 
     if (!res.error) {
-      dispatch(setExpenditures(res.payload));
+      updateExpenditures(session.id, dispatch);
     }
   };
 

@@ -2,7 +2,7 @@ import { SET_EXPENDITURES } from '../actions/expenditure';
 import filterExpenditures from '../helpers/filterExpenditures';
 
 const initialState = {
-  expenditures: false,
+  expenditures: [],
   summary: false,
 };
 
