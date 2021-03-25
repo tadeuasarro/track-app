@@ -2,7 +2,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Loading from '../../components/loading/Loading';
 import deleteExpenditures from '../../api/deleteExpenditures';
 import './expenditure.css';
 import { setExpenditures } from '../../actions/expenditure';
@@ -45,8 +44,6 @@ const Expenditure = ({ expenditure }) => {
       dispatch(setExpenditures(res.payload));
     }
   };
-
-  if (state.pending) return <Loading />;
 
   return (
     <div className="expenditure-container">

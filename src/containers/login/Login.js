@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { setCurrentUser } from '../../actions/session';
 import createUser from '../../api/createUser';
 import createSession from '../../api/createSession';
-import Loading from '../../components/loading/Loading';
 import Error from '../../components/error/Error';
 import './login.css';
 import { setExpenditures } from '../../actions/expenditure';
@@ -42,8 +41,6 @@ const Login = () => {
       }
     }
   };
-
-  if (fetch.loading) return <Loading />;
 
   const errorObj = (!fetch.errors ? {} : fetch.errors);
 

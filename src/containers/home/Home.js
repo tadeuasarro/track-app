@@ -1,14 +1,11 @@
 import { useSelector } from 'react-redux';
 import Footer from '../../components/footer/Footer';
-import Loading from '../../components/loading/Loading';
 import './home.css';
 
 const Home = () => {
   const { session, expenditure } = useSelector(state => state);
 
   const { target } = session;
-
-  if (!expenditure.expenditures) return <Loading />;
 
   const {
     total,

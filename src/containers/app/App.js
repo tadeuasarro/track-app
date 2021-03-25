@@ -9,7 +9,7 @@ import './app.css';
 import createSession from '../../api/createSession';
 
 const App = () => {
-  const { session } = useSelector(state => state);
+  const { session, fetch } = useSelector(state => state);
   const dispatch = useDispatch();
   const username = window.localStorage.getItem('track');
 
@@ -23,6 +23,10 @@ const App = () => {
 
   if (!session.id && username) {
     handleSession();
+    return <Loading />;
+  }
+
+  if (fetch.loading) {
     return <Loading />;
   }
 

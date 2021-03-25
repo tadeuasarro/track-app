@@ -2,7 +2,6 @@
 /* eslint-disable camelcase */
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
-import Loading from '../../components/loading/Loading';
 import Footer from '../../components/footer/Footer';
 import Error from '../../components/error/Error';
 import './measures.css';
@@ -14,7 +13,7 @@ const Measures = () => {
   const { session, fetch } = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const [state, setState] = useState();
+  const [state, setState] = useState({});
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -62,15 +61,6 @@ const Measures = () => {
             <i className="fas fa-arrow-down" />
           </div>
         </div>
-        <Footer />
-      </div>
-    );
-  }
-
-  if (fetch.loading) {
-    return (
-      <div>
-        <Loading />
         <Footer />
       </div>
     );
