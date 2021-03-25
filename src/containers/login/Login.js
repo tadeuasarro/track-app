@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { setCurrentUser } from '../../actions/session';
 import createUser from '../../api/createUser';
@@ -7,22 +7,20 @@ import Loading from '../../components/loading/Loading';
 import Error from '../../components/error/Error';
 import './login.css';
 import { setExpenditures } from '../../actions/expenditure';
+import { setErrors, setLoading } from '../../actions/fetch';
 
 const Login = () => {
+  const { fetch } = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const [state, setState] = useState({
-    pending: false,
-    error: false,
-  });
+  const [username, setUsername] = useState();
+
+  const handleChange = e => {
+    setUsername(e.target.value);
+  };
 
   const handleClick = async key => {
-    const username = document.getElementById('login-input').value;
-
-    setState({
-      ...state,
-      pending: true,
-    });
+    dispatch(setLoading(true));
 
     let res = {};
 
@@ -33,7 +31,7 @@ const Login = () => {
       res = await createSession(username);
     }
 
-    setState(res.state);
+    dispatch(setErrors(res.state.error));
 
     if (!res.state.error) {
       dispatch(setCurrentUser(res.payload));
@@ -45,9 +43,9 @@ const Login = () => {
     }
   };
 
-  if (state.pending) return <Loading />;
+  if (fetch.loading) return <Loading />;
 
-  const errorObj = (!state.error ? {} : state.error);
+  const errorObj = (!fetch.errors ? {} : fetch.errors);
 
   return (
     <div className="login-container">
@@ -56,7 +54,7 @@ const Login = () => {
         <p className="welcome-text">Login with your account, or fill the form and click on register!</p>
       </div>
       <form className="login-form">
-        <input id="login-input" placeholder="Username" className="login-input" type="text" />
+        <input onChange={handleChange} id="login-input" placeholder="Username" className="login-input" type="text" />
         <button onClick={() => handleClick(false)} className="login-button" type="button">Login</button>
         <Error error={errorObj.login} />
         <button onClick={() => handleClick(true)} className="register-button" type="button">Register</button>
