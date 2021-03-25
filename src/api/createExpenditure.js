@@ -14,17 +14,11 @@ const createExpenditure = async data => {
   const result = await res.json();
   if (result.expense_id || result.date || result.description || result.value) {
     return ({
-      state: {
-        pending: false,
-        error: result,
-      },
+      error: result,
     });
   }
   return ({
-    state: {
-      pending: false,
-      error: false,
-    },
+    error: false,
     payload: result,
   });
 };
