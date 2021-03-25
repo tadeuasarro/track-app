@@ -1,4 +1,6 @@
+/* eslint-disable */
 import { useSelector, useDispatch } from 'react-redux';
+import jwt_decode from "jwt-decode";
 import { setCurrentUser } from '../../actions/session';
 import { setExpenditures } from '../../actions/expenditure';
 import Navbar from '../../components/navbar/Navbar';
@@ -14,7 +16,7 @@ const App = () => {
   const username = window.localStorage.getItem('track');
 
   const handleSession = async () => {
-    const res = await createSession(username);
+    const res = await createSession(jwt_decode(username));
     if (!res.error) {
       dispatch(setCurrentUser(res.payload));
       dispatch(setExpenditures(res.payload.expenditures));
@@ -39,7 +41,7 @@ const App = () => {
     );
   }
 
-  window.localStorage.setItem('track', session.username);
+  window.localStorage.setItem('track', session.token);
 
   return (
     <div className="app-container">
