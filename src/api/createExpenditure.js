@@ -11,6 +11,7 @@ const createExpenditure = async data => {
 
   const res = await fetch(url, config);
   const result = await res.json();
+  console.log(result);
   if (!result.id) {
     return ({
       error: result,
