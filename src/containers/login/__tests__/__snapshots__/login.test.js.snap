@@ -24,6 +24,7 @@ exports[`Display renders correctly 1`] = `
     <input
       className="login-input"
       id="login-input"
+      onChange={[Function]}
       placeholder="Username"
       type="text"
     />

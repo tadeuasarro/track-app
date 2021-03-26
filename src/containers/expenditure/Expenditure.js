@@ -27,6 +27,8 @@ const Expenditure = ({ expenditure }) => {
     id,
   } = expenditure;
 
+  console.log(expenditure);
+
   const handleClick = async id => {
     dispatch(setLoading());
 
