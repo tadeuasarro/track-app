@@ -26,6 +26,9 @@ const Login = () => {
     if (key) {
       const target = 0;
       res = await createUser({ username, target });
+      if (!res.error) {
+        res = await createSession(username);
+      }
     } else {
       res = await createSession(username);
     }
