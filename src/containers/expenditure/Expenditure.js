@@ -6,16 +6,6 @@ import './expenditure.css';
 import { setErrors, setLoading } from '../../actions/fetch';
 import updateExpenditures from '../../helpers/updateExpenditures';
 
-const expenses = [
-  'Total',
-  'Education',
-  'Grocery',
-  'Health',
-  'Leisure',
-  'Living',
-  'Transport',
-];
-
 const Expenditure = ({ expenditure }) => {
   const { session } = useSelector(state => state);
   const dispatch = useDispatch();
@@ -59,7 +49,7 @@ const Expenditure = ({ expenditure }) => {
       <p className="expenditure">
         <span>Category:</span>
         &nbsp;
-        {expenses[category]}
+        {category}
       </p>
       <button type="button" onClick={() => handleClick(id)}>
         <i className="fas fa-trash-alt" />
@@ -70,7 +60,7 @@ const Expenditure = ({ expenditure }) => {
 
 Expenditure.propTypes = {
   expenditure: PropTypes.shape({
-    category: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
     user_id: PropTypes.number.isRequired,
     value: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,

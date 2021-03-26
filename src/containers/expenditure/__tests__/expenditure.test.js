@@ -8,7 +8,7 @@ const expenditure = {
   value: 200,
   description: 'This is some description',
   date: '2020/03/01',
-  category: 1,
+  category: 'Education',
   user_id: 1,
   id: 1,
 };

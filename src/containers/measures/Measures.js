@@ -73,12 +73,12 @@ const Measures = () => {
         <form className="measures-form">
           <select onChange={handleChange} name="category" className="measures-form-input">
             <option value="">Category</option>
-            <option value="1">Education</option>
-            <option value="2">Grocery</option>
-            <option value="3">Health</option>
-            <option value="4">Leisure</option>
-            <option value="5">Living</option>
-            <option value="6">Transport</option>
+            <option value="Education">Education</option>
+            <option value="Grocery">Grocery</option>
+            <option value="Health">Health</option>
+            <option value="Leisure">Leisure</option>
+            <option value="Living">Living</option>
+            <option value="Transport">Transport</option>
           </select>
           <Error error={errorObj.category} />
           <input onChange={handleChange} name="description" className="measures-form-input" placeholder="Description" />
