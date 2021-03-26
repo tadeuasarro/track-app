@@ -15,23 +15,23 @@ describe('Detail Reducer', () => {
     const mockAction = {
       type: SET_EXPENDITURES,
       payload: [
-        { value: 1000, expense_id: 1 },
-        { value: 1000, expense_id: 2 },
-        { value: 1000, expense_id: 3 },
-        { value: 1000, expense_id: 4 },
-        { value: 1000, expense_id: 5 },
-        { value: 1000, expense_id: 6 },
+        { value: 1000, category: 1 },
+        { value: 1000, category: 2 },
+        { value: 1000, category: 3 },
+        { value: 1000, category: 4 },
+        { value: 1000, category: 5 },
+        { value: 1000, category: 6 },
       ],
     };
     const state = expenditureReducer(mockState, mockAction);
     expect(state).toStrictEqual({
       expenditures: [
-        { value: 1000, expense_id: 1 },
-        { value: 1000, expense_id: 2 },
-        { value: 1000, expense_id: 3 },
-        { value: 1000, expense_id: 4 },
-        { value: 1000, expense_id: 5 },
-        { value: 1000, expense_id: 6 },
+        { value: 1000, category: 1 },
+        { value: 1000, category: 2 },
+        { value: 1000, category: 3 },
+        { value: 1000, category: 4 },
+        { value: 1000, category: 5 },
+        { value: 1000, category: 6 },
       ],
       summary: {
         total: 6000,

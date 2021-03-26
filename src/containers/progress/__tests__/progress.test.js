@@ -17,7 +17,7 @@ describe('Rendering component', () => {
       );
     });
     // eslint-disable-next-line
-    const element = screen.getByText('Please wait...');
+    const element = screen.getByText('History');
   });
 });
 

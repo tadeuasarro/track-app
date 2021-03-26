@@ -12,21 +12,25 @@ describe('Rendering component', () => {
         <BrowserRouter>
           <Provider store={store}>
             <Home />
-          </Provider>,
-        </BrowserRouter>
+          </Provider>
+          ,
+        </BrowserRouter>,
       );
     });
     // eslint-disable-next-line
-    const element = screen.getByText('Please wait...');
+    const element = screen.getByText('Target');
   });
 });
 
 describe('Display', () => {
   it('renders correctly', () => {
     const comp = renderer.create(
-      <Provider store={store}>
-        <Home />
-      </Provider>,
+      <BrowserRouter>
+        <Provider store={store}>
+          <Home />
+        </Provider>
+        ,
+      </BrowserRouter>,
     ).toJSON();
     expect(comp).toMatchSnapshot();
   });
