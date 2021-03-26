@@ -1,5 +1,6 @@
 const createExpenditure = async data => {
-  const url = 'https://enigmatic-everglades-24941.herokuapp.com/users';
+  const url = 'http://localhost:5000/users';
+  // const url = 'https://enigmatic-everglades-24941.herokuapp.com/users';
   const config = {
     mode: 'cors',
     method: 'POST',
@@ -13,18 +14,12 @@ const createExpenditure = async data => {
   const result = await res.json();
   if (result.id) {
     return ({
-      state: {
-        pending: false,
-        error: false,
-      },
+      error: false,
       payload: result,
     });
   }
   return ({
-    state: {
-      pending: false,
-      error: result,
-    },
+    error: result,
   });
 };
 

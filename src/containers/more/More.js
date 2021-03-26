@@ -10,9 +10,8 @@ const More = () => {
   const dispatch = useDispatch(state => state);
 
   const handleClick = () => {
-    document.cookie = 'username=';
-    dispatch(setCurrentUser({ id: false, username: false, target: false }));
-    dispatch(setExpenditures(false));
+    dispatch(setCurrentUser({ user: { id: false, username: false, target: false }, token: false }));
+    dispatch(setExpenditures([]));
     window.localStorage.removeItem('track');
   };
 

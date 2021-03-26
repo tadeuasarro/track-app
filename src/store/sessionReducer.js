@@ -4,15 +4,17 @@ const initialState = {
   username: false,
   id: false,
   target: false,
+  token: false,
 };
 
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_USER:
       return {
-        username: action.payload.username,
-        id: action.payload.id,
-        target: action.payload.target,
+        username: action.payload.user.username,
+        id: action.payload.user.id,
+        target: action.payload.user.target,
+        token: action.payload.token,
       };
     case UPDATE_USER_TARGET:
       return {

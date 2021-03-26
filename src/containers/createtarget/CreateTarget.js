@@ -1,42 +1,43 @@
-import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 import updateUser from '../../api/updateUser';
 import { updateUserTarget } from '../../actions/session';
 import { setExpenditures } from '../../actions/expenditure';
 import Error from '../../components/error/Error';
 import './createtarget.css';
+import { setLoading, setErrors } from '../../actions/fetch';
 
 const CreateTarget = () => {
-  const { target, id } = useSelector(state => state).session;
+  const { session, fetch } = useSelector(state => state);
+  const { target, id } = session;
   const dispatch = useDispatch();
-  const [state, setState] = useState({
-    pending: false,
-    error: false,
-  });
 
-  const handleClick = async () => {
-    let newTarget = 0;
+  const [newTarget, setNewTarget] = useState(0);
 
-    if (!target) {
-      newTarget = document.getElementById('target-input').value;
+  const handleChange = e => {
+    setNewTarget(e.target.value);
+  };
+
+  const handleClick = async key => {
+    dispatch(setLoading());
+
+    let res = {};
+
+    if (!key) {
+      res = await updateUser({ target: 0 }, id);
+    } else {
+      res = await updateUser({ target: newTarget }, id);
     }
 
-    setState({
-      ...state,
-      pending: true,
-    });
+    dispatch(setErrors(res.error));
 
-    const res = await updateUser({ target: newTarget }, id);
-
-    setState(res.state);
-
-    if (!res.state.error) {
+    if (!res.error) {
       dispatch(updateUserTarget(res.payload.target));
       dispatch(setExpenditures(res.payload.expenditures));
     }
   };
 
-  if (state.pending) {
+  if (fetch.loading) {
     return (
       <div className="loading-container">
         <h1>Please wait...</h1>
@@ -44,19 +45,19 @@ const CreateTarget = () => {
     );
   }
 
-  const errorObj = (!state.error ? {} : state.error);
+  const errorObj = (!fetch.errors ? {} : fetch.errors);
 
   if (target) {
     return (
-      <button type="button" onClick={() => handleClick()} className="delete-target">Delete target</button>
+      <button type="button" onClick={() => handleClick(false)} className="delete-target">Delete target</button>
     );
   }
 
   return (
     <div className="create-target-container">
-      <input id="target-input" className="target-input" placeholder="Input target here" />
+      <input onChange={handleChange} id="target-input" className="target-input" placeholder="Input target here" />
       <Error error={errorObj.target} />
-      <button onClick={() => handleClick()} type="button" className="create-target">Set a new target</button>
+      <button onClick={() => handleClick(true)} type="button" className="create-target">Set a new target</button>
     </div>
   );
 };

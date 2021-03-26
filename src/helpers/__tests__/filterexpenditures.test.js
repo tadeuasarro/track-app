@@ -16,12 +16,12 @@ describe('Filter expenditures helper', () => {
 
   it('expects to return all of the values as 10 and total as 60', () => {
     const result = filterExpenditures([
-      { value: 10, expense_id: 1 },
-      { value: 10, expense_id: 2 },
-      { value: 10, expense_id: 3 },
-      { value: 10, expense_id: 4 },
-      { value: 10, expense_id: 5 },
-      { value: 10, expense_id: 6 },
+      { value: 10, category: 'Education' },
+      { value: 10, category: 'Grocery' },
+      { value: 10, category: 'Health' },
+      { value: 10, category: 'Leisure' },
+      { value: 10, category: 'Living' },
+      { value: 10, category: 'Transport' },
     ]);
 
     expect(result).toStrictEqual({

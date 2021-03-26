@@ -12,9 +12,11 @@ describe('Detail Reducer', () => {
 
   it('sets the state with the user information', () => {
     const mockState = { username: false, target: false, id: false };
-    const mockAction = { type: SET_CURRENT_USER, payload: { username: 'Tadeu', target: 0, id: 1 } };
+    const mockAction = { type: SET_CURRENT_USER, payload: { user: { username: 'Tadeu', target: 0, id: 1 }, token: 'this is a token' } };
     const state = sessionReducer(mockState, mockAction);
-    expect(state).toStrictEqual({ username: 'Tadeu', target: 0, id: 1 });
+    expect(state).toStrictEqual({
+      username: 'Tadeu', target: 0, id: 1, token: 'this is a token',
+    });
   });
 
   it('updates the users target in the state', () => {
@@ -29,12 +31,20 @@ describe('Detail Reducer', () => {
     const mockAction = {
       type: SET_CURRENT_USER,
       payload: {
-        username: false,
-        target: false,
-        id: false,
+        user: {
+          username: false,
+          target: false,
+          id: false,
+        },
+        token: false,
       },
     };
     const state = sessionReducer(mockState, mockAction);
-    expect(state).toStrictEqual({ username: false, target: false, id: false });
+    expect(state).toStrictEqual({
+      username: false,
+      target: false,
+      id: false,
+      token: false,
+    });
   });
 });

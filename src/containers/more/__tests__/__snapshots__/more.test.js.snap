@@ -16,6 +16,7 @@ exports[`Display renders correctly 1`] = `
       <input
         className="target-input"
         id="target-input"
+        onChange={[Function]}
         placeholder="Input target here"
       />
       
