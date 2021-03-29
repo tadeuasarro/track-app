@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display renders correctly 1`] = `
+<div
+  className="app-container"
+>
+  <div
+    className="navbar"
+  >
+    <h1>
+      Personal Expenses
+    </h1>
+  </div>
+  <div
+    className="login-container"
+  >
+    <div
+      className="instructions"
+    >
+      <p
+        className="welcome-text"
+      >
+        Welcome to Personal Expenses, your personal expenses managing application.
+      </p>
+      <p
+        className="welcome-text"
+      >
+        Login with your account, or fill the form and click on register!
+      </p>
+    </div>
+    <form
+      className="login-form"
+    >
+      <input
+        className="login-input"
+        id="login-input"
+        onChange={[Function]}
+        placeholder="Username"
+        type="text"
+      />
+      <button
+        className="login-button"
+        onClick={[Function]}
+        type="button"
+      >
+        Login
+      </button>
+      
+      <button
+        className="register-button"
+        onClick={[Function]}
+        type="button"
+      >
+        Register
+      </button>
+      
+    </form>
+  </div>
+</div>
+`;

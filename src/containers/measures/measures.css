@@ -1,0 +1,59 @@
+.measures-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: calc(100vh - 120px);
+  padding-bottom: 60px;
+}
+
+.measures-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.measures-form-input,
+.measures-form-button {
+  margin-top: 15px;
+  height: 50px;
+  width: 90%;
+  border-radius: 5px;
+  font-size: 23px;
+}
+
+.measures-form-input {
+  border: grey solid 1px;
+  padding: 10px;
+}
+
+.measures-form-button {
+  border: none;
+  background-color: #42b05d;
+  color: white;
+}
+
+.measures-container h3 {
+  padding: 20px;
+  text-align: center;
+  font-size: 25px;
+  color: #313944;
+}
+
+.require-target {
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.require-target p {
+  margin-top: 20px;
+}
+
+.target-instruction {
+  position: absolute;
+  right: 27px;
+  bottom: 60px;
+}

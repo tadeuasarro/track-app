@@ -1,0 +1,38 @@
+.progress-container {
+  height: calc(100vh - 70px);
+  margin-bottom: 50px;
+  padding: 5% 5% 0 5%;
+}
+
+.progress-summary {
+  border-radius: 5px;
+  background-color: #f3f4f6;
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+
+.progress-expent {
+  text-align: center;
+  justify-content: space-evenly;
+  margin: 20px 0;
+  color: red;
+}
+
+.history-container {
+  background-color: #f3f4f6;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 70px 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.history-container i {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.total-amount {
+  font-size: 25px;
+}

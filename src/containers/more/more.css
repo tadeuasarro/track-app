@@ -1,0 +1,27 @@
+.more-container {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-info {
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #f3f4f6;
+  margin-bottom: 20px;
+  font-size: 20px;
+  width: 90%;
+}
+
+.logout-button {
+  margin-top: 15px;
+  border: none;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  padding: 15px;
+  font-size: 20px;
+  width: 90%;
+}

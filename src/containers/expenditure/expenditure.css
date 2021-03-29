@@ -1,0 +1,25 @@
+.expenditure-container {
+  background-color: #fff;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 17px;
+  width: 100%;
+  position: relative;
+}
+
+.expenditure {
+  margin-bottom: 5px;
+}
+
+.expenditure-container button {
+  color: red;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.expenditure-container button:hover {
+  cursor: pointer;
+}

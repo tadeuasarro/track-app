@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display renders correctly 1`] = `
+<div>
+  <div
+    className="navbar"
+  >
+    <h1>
+      Personal Expenses
+    </h1>
+  </div>
+  <div
+    className="loading-container"
+  >
+    <h1>
+      Please wait...
+    </h1>
+  </div>
+</div>
+`;

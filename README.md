@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# Final Capstone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Hello there! Welcome to Personal Expenses, your personal expenses managing application. The purpose of this project is to help people managing their expenses and achieving their personal financial goals.
 
-## Available Scripts
+##### This is a front-end application, which retrieves data from [this API](https://github.com/tadeuasarro/track-api/tree/milestone7) that I developed.
 
-In the project directory, you can run:
+#### Features
+- Register and login using only the username
+- Create and reset goals of how much money the user plans to expend
+- Track expenses and sort them into six different categories
+- Check a dashboard which summarizes the expenses into the categories
+- Check the history log which displays the expenses info
 
-### `npm start`
+#### Screenshot
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![screenshot](public/screenshot.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Livedemo
 
-### `npm test`
+- [Heroku](https://nameless-gorge-08250.herokuapp.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
 
-### `npm run build`
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Packages
+- [Eslint](https://eslint.org/)
+- [PropTypes](https://www.npmjs.com/package/prop-types)
+- [React-dom](https://www.npmjs.com/package/react-dom)
+- [React-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [React-test-renderer](https://www.npmjs.com/package/react-test-renderer)
+- [Redux-thunk](https://www.npmjs.com/package/redux-thunk)
+- [Stylelint](https://stylelint.io/)
+- [Webpack](https://webpack.js.org/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Setup
 
-### `npm run eject`
+Clone the repo with
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+  https://github.com/tadeuasarro/track-app.git
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install packages with
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+  npm install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Start server with:
 
-## Learn More
+```
+  npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Follow the instructions in [this repo](https://github.com/tadeuasarro/track-api/tree/milestone7) to start the local server.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Open `http://localhost:3000/` in your favorite browser.
 
-### Code Splitting
+### Run tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+  npm test
+```
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Using
 
-### Making a Progressive Web App
+- The first time you access the app you will have to create a username.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- The next time you can login using that username.
 
-### Advanced Configuration
+- Before adding expenses the application will require you to create a target.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- After that all you have to do is add the expenses and you can check them out in the home and progress tabs.
 
-### Deployment
+### Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+👤 This is me:
 
-### `npm run build` fails to minify
+- [Tadeu A Sarro](https://tadeuasarro.me)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/tadeuasarro/track-app/issues)
+
+
+### Show your support
+
+Give a star if you like this project!
+
+### Acknowledgments
+
+- [Track-API](https://github.com/tadeuasarro/track-api/tree/milestone7)
+- [Microverse](https://www.microverse.org/)
+
+### 📝 License
+
+This project is MIT licensed.

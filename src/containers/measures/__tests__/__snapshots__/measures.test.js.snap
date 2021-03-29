@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display renders correctly 1`] = `
+<div>
+  <div
+    className="require-target"
+  >
+    <h3>
+      Create expense
+    </h3>
+    <p>
+      Set up a target before submitting expenses entries.
+    </p>
+    <div
+      className="target-instruction"
+    >
+      <span>
+        Click here! 
+      </span>
+      <i
+        className="fas fa-arrow-down"
+      />
+    </div>
+  </div>
+  <div
+    className="footer-container"
+  >
+    <a
+      className="footer-link"
+      href="/measures"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-balance-scale-right"
+      />
+    </a>
+    <a
+      className="footer-link"
+      href="/"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-bars"
+      />
+    </a>
+    <a
+      className="footer-link"
+      href="/progress"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-tasks"
+      />
+    </a>
+    <a
+      className="footer-link"
+      href="/more"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-info"
+      />
+    </a>
+  </div>
+</div>
+`;
